@@ -83,7 +83,7 @@ export default function Climate() {
                 <div className="flex-1 h-8 bg-white/[0.03] rounded-lg overflow-hidden">
                   <motion.div
                     initial={{ width: 0 }}
-                    whileInView={{ width: `${(parseInt(s.value.split("–")[1] || s.value) / 64) * 100}%` }}
+                    whileInView={{ width: `${(Number.parseInt(s.value.split("–")[1] || s.value) / 64) * 100}%` }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.3 + i * 0.1, duration: 0.8 }}
                     className={`h-full ${s.color}/15 rounded-lg flex items-center justify-end pr-3`}

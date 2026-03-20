@@ -24,6 +24,12 @@
       "correctness": {
         "noUnusedVariables": "off"
       },
+      "suspicious": {
+        "noArrayIndexKey": "off"
+      },
+      "security": {
+        "noDangerouslySetInnerHtml": "off"
+      },
       "nursery": {
         "noImgElement": "off"
       },
