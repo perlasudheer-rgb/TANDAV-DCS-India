@@ -17,9 +17,14 @@ import {
 } from "lucide-react";
 
 const MARKET_GROWTH = [
-  { year: "2025", value: "$0.48B", tr: "322K TR" },
-  { year: "2030", value: "$1.92B", tr: "1.28M TR" },
-  { year: "2035", value: "$7.22B", tr: "4.81M TR" },
+  { year: "2025", value: "$0.48B", tr: "322K TR", note: "" },
+  { year: "2030", value: "$1.92B", tr: "1.28M TR", note: "" },
+  {
+    year: "2035",
+    value: "$7.22B",
+    tr: "4.81M TR",
+    note: "Basis 12.5% DCS adoption within chiller installed capacity in the country",
+  },
 ];
 
 const FDI_ITEMS = [
@@ -181,6 +186,11 @@ export default function MarketOpportunity() {
                 {item.value}
               </div>
               <div className="text-sm text-white/50">{item.tr} installed</div>
+              {item.note && (
+                <p className="text-[10px] text-teal-400/50 mt-2 leading-snug italic">
+                  {item.note}
+                </p>
+              )}
               {i < 2 && (
                 <ArrowRight className="absolute top-1/2 -right-3 w-5 h-5 text-teal-400/30 hidden md:block" />
               )}
