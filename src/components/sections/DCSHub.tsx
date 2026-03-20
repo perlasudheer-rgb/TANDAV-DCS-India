@@ -62,12 +62,6 @@ export default function DCSHub() {
           transition={{ duration: 0.7 }}
           className="mb-16 text-center"
         >
-          <span
-            data-design-id="hub-label"
-            className="text-[10px] tracking-[0.25em] uppercase text-teal-400 font-semibold mb-3 block"
-          >
-            TANDAV
-          </span>
           <h2
             data-design-id="hub-title"
             className="section-title text-white mb-4 mx-auto"
@@ -76,13 +70,34 @@ export default function DCSHub() {
             <br />
             <span className="text-gradient">DCS Hub</span>
           </h2>
+          <motion.div
+            data-design-id="hub-tandav-reveal"
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3, duration: 0.8 }}
+            className="inline-block rounded-xl border border-teal-400/20 bg-teal-400/[0.04] px-6 py-4 mb-6"
+          >
+            <span
+              data-design-id="hub-tandav-acronym"
+              className="text-lg md:text-xl font-bold tracking-[0.2em] text-teal-400 block mb-1"
+            >
+              TANDAV
+            </span>
+            <span
+              data-design-id="hub-tandav-fullform"
+              className="text-xs md:text-sm tracking-wide text-white/60"
+            >
+              Transforming Architecture for National District-Cooling
+              Advancement &amp; Viability
+            </span>
+          </motion.div>
           <p
             data-design-id="hub-subtitle"
             className="section-subtitle mx-auto text-center"
           >
-            Transforming Architecture for National District-cooling Advancement
-            & Viability — a dedicated platform by UNEP and World Bank to
-            catalyse India&apos;s district cooling market.
+            A dedicated platform by UNEP and World Bank to catalyse India&apos;s
+            district cooling market.
           </p>
         </motion.div>
 

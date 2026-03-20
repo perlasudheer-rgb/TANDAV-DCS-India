@@ -71,12 +71,6 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.8 }}
           >
-            <h2
-              data-design-id="hero-tandav-label"
-              className="text-sm md:text-base font-semibold tracking-[0.3em] uppercase text-teal-400 mb-4"
-            >
-              TANDAV
-            </h2>
             <h1
               data-design-id="hero-title"
               className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.08] mb-6"
@@ -87,13 +81,6 @@ export default function Hero() {
               <br />
               <span className="text-gradient">The Untold Story</span>
             </h1>
-            <p
-              data-design-id="hero-subtitle"
-              className="text-xs tracking-[0.15em] uppercase text-white/40 mb-8"
-            >
-              Transforming Architecture for National District-cooling
-              Advancement & Viability
-            </p>
           </motion.div>
 
           <motion.div
