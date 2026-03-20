@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import { useEffect, useState } from "react";
 
 const NAV_ITEMS = [
   { id: "landscape", label: "Landscape" },
@@ -14,6 +14,7 @@ const NAV_ITEMS = [
   { id: "policy-levers", label: "Policy Levers" },
   { id: "barriers", label: "Barriers" },
   { id: "dcs-hub", label: "DCS Hub" },
+  { id: "path-forward", label: "Path Forward" },
 ];
 
 export default function Navigation() {
@@ -92,7 +93,10 @@ export default function Navigation() {
             </div>
 
             <div className="flex items-center gap-3">
-              <span data-design-id="nav-event-date" className="text-[10px] tracking-widest text-teal-400/70 uppercase hidden md:block">
+              <span
+                data-design-id="nav-event-date"
+                className="text-[10px] tracking-widest text-teal-400/70 uppercase hidden md:block"
+              >
                 25 Mar 2026
               </span>
               <button

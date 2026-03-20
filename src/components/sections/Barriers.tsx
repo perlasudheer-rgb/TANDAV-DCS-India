@@ -1,7 +1,14 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ShieldAlert, Banknote, Wrench, Eye, Network, ArrowRight } from "lucide-react";
+import {
+  ArrowRight,
+  Banknote,
+  Eye,
+  Network,
+  ShieldAlert,
+  Wrench,
+} from "lucide-react";
 
 const BARRIERS = [
   {
@@ -60,7 +67,7 @@ const BARRIERS = [
     title: "Awareness & Perception",
     issues: [
       "Decision makers unaware India has 73+ projects — seen as 'foreign technology'",
-      "DLF failure creates negative perception despite being a model issue, not tech",
+      "DLF failure and tenant preference for stand alone systems creates negative perception",
       "Developers and ULBs lack evidence-based understanding of the techno-commercial case",
     ],
     hubHelps: [
@@ -89,7 +96,11 @@ const BARRIERS = [
 
 export default function BarriersSection() {
   return (
-    <section id="barriers" data-design-id="barriers-section" className="relative py-24 md:py-32">
+    <section
+      id="barriers"
+      data-design-id="barriers-section"
+      className="relative py-24 md:py-32"
+    >
       <div className="absolute inset-0 bg-radial-teal opacity-15" />
       <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
@@ -99,15 +110,24 @@ export default function BarriersSection() {
           transition={{ duration: 0.7 }}
           className="mb-16"
         >
-          <span data-design-id="barriers-label" className="text-[10px] tracking-[0.25em] uppercase text-teal-400 font-semibold mb-3 block">
+          <span
+            data-design-id="barriers-label"
+            className="text-[10px] tracking-[0.25em] uppercase text-teal-400 font-semibold mb-3 block"
+          >
             Challenges
           </span>
-          <h2 data-design-id="barriers-title" className="section-title text-white mb-4">
-            Five Interconnected<br />
+          <h2
+            data-design-id="barriers-title"
+            className="section-title text-white mb-4"
+          >
+            Five Interconnected
+            <br />
             <span className="text-gradient">Barriers</span>
           </h2>
           <p data-design-id="barriers-subtitle" className="section-subtitle">
-            Five barrier categories prevent India&apos;s district cooling market from reaching its $7+ billion potential. The DCS Hub is designed to address each systematically.
+            Five barrier categories prevent India&apos;s district cooling market
+            from reaching its $7+ billion potential. The DCS Hub is designed to
+            address each systematically.
           </p>
         </motion.div>
 
@@ -126,8 +146,12 @@ export default function BarriersSection() {
                 <div className="flex items-center gap-3 md:w-64 shrink-0">
                   <barrier.icon className="w-5 h-5 text-white/50" />
                   <div>
-                    <h3 className="text-sm font-semibold text-white">{barrier.title}</h3>
-                    <span className={`inline-block mt-1 px-2 py-0.5 text-[10px] font-medium rounded-full border ${barrier.severityColor}`}>
+                    <h3 className="text-sm font-semibold text-white">
+                      {barrier.title}
+                    </h3>
+                    <span
+                      className={`inline-block mt-1 px-2 py-0.5 text-[10px] font-medium rounded-full border ${barrier.severityColor}`}
+                    >
                       {barrier.severity}
                     </span>
                   </div>
@@ -135,10 +159,15 @@ export default function BarriersSection() {
 
                 <div className="flex-1 grid md:grid-cols-2 gap-6">
                   <div>
-                    <p className="text-[10px] text-white/30 uppercase tracking-wider font-semibold mb-2">Issues</p>
+                    <p className="text-[10px] text-white/30 uppercase tracking-wider font-semibold mb-2">
+                      Issues
+                    </p>
                     <ul className="space-y-1.5">
                       {barrier.issues.map((issue, ii) => (
-                        <li key={ii} className="text-[11px] text-white/45 flex items-start gap-2">
+                        <li
+                          key={ii}
+                          className="text-[11px] text-white/45 flex items-start gap-2"
+                        >
                           <span className="w-1 h-1 rounded-full bg-white/20 mt-1.5 shrink-0" />
                           {issue}
                         </li>
@@ -146,10 +175,15 @@ export default function BarriersSection() {
                     </ul>
                   </div>
                   <div>
-                    <p className="text-[10px] text-teal-400/60 uppercase tracking-wider font-semibold mb-2">How DCS Hub Helps</p>
+                    <p className="text-[10px] text-teal-400/60 uppercase tracking-wider font-semibold mb-2">
+                      How DCS Hub Helps
+                    </p>
                     <ul className="space-y-1.5">
                       {barrier.hubHelps.map((help, hi) => (
-                        <li key={hi} className="text-[11px] text-teal-400/50 flex items-start gap-2">
+                        <li
+                          key={hi}
+                          className="text-[11px] text-teal-400/50 flex items-start gap-2"
+                        >
                           <ArrowRight className="w-3 h-3 text-teal-400/40 mt-0.5 shrink-0" />
                           {help}
                         </li>

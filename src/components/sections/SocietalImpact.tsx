@@ -1,7 +1,16 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Heart, Zap, Droplets, Briefcase, Lightbulb, Building2, Leaf, Handshake } from "lucide-react";
+import {
+  Briefcase,
+  Building2,
+  Droplets,
+  Handshake,
+  Heart,
+  Leaf,
+  Lightbulb,
+  Zap,
+} from "lucide-react";
 
 const SDGS = [
   {
@@ -80,7 +89,11 @@ const SDGS = [
 
 export default function SocietalImpact() {
   return (
-    <section id="societal-impact" data-design-id="societal-impact-section" className="relative py-24 md:py-32">
+    <section
+      id="societal-impact"
+      data-design-id="societal-impact-section"
+      className="relative py-24 md:py-32"
+    >
       <div className="absolute inset-0 bg-radial-teal opacity-20" />
       <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
@@ -90,34 +103,76 @@ export default function SocietalImpact() {
           transition={{ duration: 0.7 }}
           className="mb-16"
         >
-          <span data-design-id="si-label" className="text-[10px] tracking-[0.25em] uppercase text-teal-400 font-semibold mb-3 block">
+          <span
+            data-design-id="si-label"
+            className="text-[10px] tracking-[0.25em] uppercase text-teal-400 font-semibold mb-3 block"
+          >
             Beyond Climate
           </span>
-          <h2 data-design-id="si-title" className="section-title text-white mb-4">
-            Societal<br />
+          <h2
+            data-design-id="si-title"
+            className="section-title text-white mb-4"
+          >
+            Societal
+            <br />
             <span className="text-gradient">Impact</span>
           </h2>
           <p data-design-id="si-subtitle" className="section-subtitle">
-            District cooling contributes to 8 UN SDGs — from saving lives during heat waves to creating skilled employment and building sustainable cities.
+            District cooling contributes to 8 UN SDGs — from saving lives during
+            heat waves to creating skilled employment and building sustainable
+            cities.
           </p>
         </motion.div>
 
-        <div data-design-id="si-people-stat" className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-12">
-          <motion.div data-design-id="si-heat-deaths" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} className="stat-card text-center">
+        <div
+          data-design-id="si-people-stat"
+          className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-12"
+        >
+          <motion.div
+            data-design-id="si-heat-deaths"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="stat-card text-center"
+          >
             <div className="text-2xl font-bold text-red-400">1,600+</div>
-            <div className="text-[10px] text-white/40">Heat deaths in India (2023)</div>
+            <div className="text-[10px] text-white/40">
+              Heat deaths in India (2023)
+            </div>
           </motion.div>
-          <motion.div data-design-id="si-ac-coverage" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1, duration: 0.5 }} className="stat-card text-center">
+          <motion.div
+            data-design-id="si-ac-coverage"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1, duration: 0.5 }}
+            className="stat-card text-center"
+          >
             <div className="text-2xl font-bold text-amber-400">~7%</div>
-            <div className="text-[10px] text-white/40">Indian households with AC today</div>
+            <div className="text-[10px] text-white/40">
+              Indian households with AC today
+            </div>
           </motion.div>
-          <motion.div data-design-id="si-market-size" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2, duration: 0.5 }} className="stat-card text-center col-span-2 md:col-span-1">
+          <motion.div
+            data-design-id="si-market-size"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2, duration: 0.5 }}
+            className="stat-card text-center col-span-2 md:col-span-1"
+          >
             <div className="text-2xl font-bold text-teal-400">$7.2B</div>
-            <div className="text-[10px] text-white/40">DCS market potential by 2035</div>
+            <div className="text-[10px] text-white/40">
+              DCS market potential by 2035
+            </div>
           </motion.div>
         </div>
 
-        <div data-design-id="si-sdg-grid" className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div
+          data-design-id="si-sdg-grid"
+          className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4"
+        >
           {SDGS.map((sdg, i) => (
             <motion.div
               key={sdg.number}
@@ -129,15 +184,23 @@ export default function SocietalImpact() {
               className={`stat-card hover:${sdg.border} transition-all duration-300 group`}
             >
               <div className="flex items-center gap-2 mb-3">
-                <div className={`w-8 h-8 rounded-lg ${sdg.bg} flex items-center justify-center`}>
+                <div
+                  className={`w-8 h-8 rounded-lg ${sdg.bg} flex items-center justify-center`}
+                >
                   <sdg.icon className={`w-4 h-4 ${sdg.color}`} />
                 </div>
                 <div>
-                  <span className="text-[10px] text-white/30 block">SDG {sdg.number}</span>
-                  <span className="text-xs font-semibold text-white">{sdg.title}</span>
+                  <span className="text-[10px] text-white/30 block">
+                    SDG {sdg.number}
+                  </span>
+                  <span className="text-xs font-semibold text-white">
+                    {sdg.title}
+                  </span>
                 </div>
               </div>
-              <p className="text-[11px] text-white/45 leading-relaxed">{sdg.desc}</p>
+              <p className="text-[11px] text-white/45 leading-relaxed">
+                {sdg.desc}
+              </p>
             </motion.div>
           ))}
         </div>

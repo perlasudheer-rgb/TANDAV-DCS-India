@@ -1,7 +1,16 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Landmark, FileText, Database, BarChart3, Users, BookOpen, Globe, ArrowRight } from "lucide-react";
+import {
+  ArrowRight,
+  BarChart3,
+  BookOpen,
+  Database,
+  FileText,
+  Globe,
+  Landmark,
+  Users,
+} from "lucide-react";
 
 const FUNCTIONS = [
   {
@@ -38,7 +47,11 @@ const FUNCTIONS = [
 
 export default function DCSHub() {
   return (
-    <section id="dcs-hub" data-design-id="dcs-hub-section" className="relative py-24 md:py-32">
+    <section
+      id="dcs-hub"
+      data-design-id="dcs-hub-section"
+      className="relative py-24 md:py-32"
+    >
       <div className="absolute inset-0 bg-grid opacity-40" />
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] rounded-full bg-teal-500/[0.06] blur-[120px]" />
       <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
@@ -49,19 +62,34 @@ export default function DCSHub() {
           transition={{ duration: 0.7 }}
           className="mb-16 text-center"
         >
-          <span data-design-id="hub-label" className="text-[10px] tracking-[0.25em] uppercase text-teal-400 font-semibold mb-3 block">
+          <span
+            data-design-id="hub-label"
+            className="text-[10px] tracking-[0.25em] uppercase text-teal-400 font-semibold mb-3 block"
+          >
             TANDAV
           </span>
-          <h2 data-design-id="hub-title" className="section-title text-white mb-4 mx-auto">
-            Government of India&apos;s<br />
+          <h2
+            data-design-id="hub-title"
+            className="section-title text-white mb-4 mx-auto"
+          >
+            Government of India&apos;s
+            <br />
             <span className="text-gradient">DCS Hub</span>
           </h2>
-          <p data-design-id="hub-subtitle" className="section-subtitle mx-auto text-center">
-            Transforming Architecture for National District-cooling Advancement & Viability — a dedicated platform by UNEP and World Bank to catalyse India&apos;s district cooling market.
+          <p
+            data-design-id="hub-subtitle"
+            className="section-subtitle mx-auto text-center"
+          >
+            Transforming Architecture for National District-cooling Advancement
+            & Viability — a dedicated platform by UNEP and World Bank to
+            catalyse India&apos;s district cooling market.
           </p>
         </motion.div>
 
-        <div data-design-id="hub-functions-grid" className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-16">
+        <div
+          data-design-id="hub-functions-grid"
+          className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-16"
+        >
           {FUNCTIONS.map((fn, i) => (
             <motion.div
               key={fn.title}
@@ -73,8 +101,12 @@ export default function DCSHub() {
               className="stat-card group hover:border-teal-400/20 transition-all duration-300"
             >
               <fn.icon className="w-6 h-6 text-teal-400/60 mb-4 group-hover:text-teal-400 transition-colors" />
-              <h3 className="text-sm font-semibold text-white mb-2">{fn.title}</h3>
-              <p className="text-[11px] text-white/45 leading-relaxed">{fn.desc}</p>
+              <h3 className="text-sm font-semibold text-white mb-2">
+                {fn.title}
+              </h3>
+              <p className="text-[11px] text-white/45 leading-relaxed">
+                {fn.desc}
+              </p>
             </motion.div>
           ))}
         </div>
@@ -87,7 +119,12 @@ export default function DCSHub() {
           transition={{ duration: 0.7 }}
           className="rounded-2xl border border-teal-400/15 bg-teal-400/[0.02] p-8 md:p-10 mb-16"
         >
-          <h3 data-design-id="hub-achievements-title" className="text-lg font-semibold text-white mb-6 text-center">7 Years of EE-Cool Programme Achievements</h3>
+          <h3
+            data-design-id="hub-achievements-title"
+            className="text-lg font-semibold text-white mb-6 text-center"
+          >
+            7 Years of EE-Cool Programme Achievements
+          </h3>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             <div data-design-id="hub-achieve-1" className="text-center">
               <div className="text-2xl font-bold text-teal-400">8+</div>
@@ -95,11 +132,15 @@ export default function DCSHub() {
             </div>
             <div data-design-id="hub-achieve-2" className="text-center">
               <div className="text-2xl font-bold text-white">50+</div>
-              <div className="text-[10px] text-white/40">Projects Catalogued</div>
+              <div className="text-[10px] text-white/40">
+                Projects Catalogued
+              </div>
             </div>
             <div data-design-id="hub-achieve-3" className="text-center">
               <div className="text-2xl font-bold text-emerald-400">500+</div>
-              <div className="text-[10px] text-white/40">Professionals Engaged</div>
+              <div className="text-[10px] text-white/40">
+                Professionals Engaged
+              </div>
             </div>
             <div data-design-id="hub-achieve-4" className="text-center">
               <div className="text-2xl font-bold text-amber-400">300+</div>
@@ -123,13 +164,19 @@ export default function DCSHub() {
         </motion.div>
       </div>
 
-      <div data-design-id="hub-footer" className="mt-24 border-t border-white/[0.06] pt-8">
+      <div
+        data-design-id="hub-footer"
+        className="mt-24 border-t border-white/[0.06] pt-8"
+      >
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-3">
             <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-teal-400 to-teal-600 flex items-center justify-center text-xs font-bold text-white">
               T
             </div>
-            <span data-design-id="hub-footer-title" className="text-sm font-semibold text-white/60">
+            <span
+              data-design-id="hub-footer-title"
+              className="text-sm font-semibold text-white/60"
+            >
               TANDAV — District Cooling in India
             </span>
           </div>

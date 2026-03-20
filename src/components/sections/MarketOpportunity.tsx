@@ -1,7 +1,20 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { TrendingUp, Factory, Globe, Users, Server, MapPin, Building2, ArrowRight, Briefcase } from "lucide-react";
+import {
+  ArrowRight,
+  BarChart3,
+  Briefcase,
+  Building2,
+  Cpu,
+  Factory,
+  Globe,
+  MapPin,
+  Server,
+  TrendingUp,
+  Users,
+  Wrench,
+} from "lucide-react";
 
 const MARKET_GROWTH = [
   { year: "2025", value: "$0.48B", tr: "322K TR" },
@@ -28,20 +41,6 @@ const DC_STATS = [
   { label: "PUE Improvement", value: "1.6 → 1.2" },
 ];
 
-const MMR_PROJECTS = [
-  { name: "BKC Retrofit", capacity: "72K RT" },
-  { name: "Dharavi Redevelopment", capacity: "83.5K RT" },
-  { name: "Navi Mumbai DC Cluster", capacity: "172.5K RT" },
-  { name: "Mindspace Airoli CaaS", capacity: "21K RT" },
-];
-
-const CHENNAI_PROJECTS = [
-  { name: "OMR IT Corridor" },
-  { name: "Data Centre Belt" },
-  { name: "Chennai Airport T2–T4" },
-  { name: "Anna Salai Hub" },
-];
-
 const NEW_ENTRANTS = [
   "Adani Energy Solutions",
   "Keppel Infrastructure",
@@ -51,17 +50,85 @@ const NEW_ENTRANTS = [
 ];
 
 const SUPPLY_CHAIN = [
-  { item: "Centrifugal Chillers", status: "Domestic + FDI JVs" },
-  { item: "Pumps & Motors", status: "Fully localisable" },
-  { item: "Pre-insulated Piping", status: "Import → local manufacturing" },
-  { item: "Controls & Automation", status: "Growing domestic" },
-  { item: "Thermal Storage Tanks", status: "Fabrication ready" },
-  { item: "Cooling Towers", status: "Mature domestic" },
+  {
+    item: "Centrifugal Chillers",
+    status: "Domestic + FDI JVs",
+    from: "30–40%",
+    to: "70–80%",
+  },
+  {
+    item: "Pumps & Motors",
+    status: "Fully localisable",
+    from: "60–70%",
+    to: "85–95%",
+  },
+  {
+    item: "Pre-insulated Piping",
+    status: "Import → local mfg",
+    from: "40–50%",
+    to: "90–95%",
+  },
+  {
+    item: "Controls & Automation",
+    status: "Growing domestic",
+    from: "25–35%",
+    to: "60–70%",
+  },
+  {
+    item: "Thermal Storage Tanks",
+    status: "Fabrication ready",
+    from: "70–80%",
+    to: "95–100%",
+  },
+  {
+    item: "Cooling Towers",
+    status: "Mature domestic",
+    from: "80–90%",
+    to: "100%",
+  },
+];
+
+const CHILLER_SEGMENTS = [
+  {
+    type: "Screw Compressor",
+    range: "100–500 TR",
+    share: 55,
+    color: "bg-teal-400",
+  },
+  {
+    type: "Centrifugal Chillers",
+    range: ">500 TR",
+    share: 36,
+    color: "bg-cyan-400",
+  },
+  {
+    type: "Scroll Compressor",
+    range: "<100 TR",
+    share: 9,
+    color: "bg-emerald-400",
+  },
+];
+
+const MANUFACTURERS = [
+  { name: "Trane (Ingersoll Rand)", location: "Pune" },
+  { name: "Carrier", location: "Gurugram & Hyderabad" },
+  { name: "Blue Star", location: "India\u2019s largest domestic brand" },
+  { name: "Grundfos / KSB / Kirloskar", location: "Pune, Bengaluru" },
+  { name: "Alfa Laval / SWEP", location: "Heat Exchangers — Pune" },
+  { name: "Honeywell / Schneider", location: "Controls — Pune, Bengaluru" },
+  {
+    name: "Paharpur / Baltimore Aircoil",
+    location: "Cooling Towers — domestic",
+  },
 ];
 
 export default function MarketOpportunity() {
   return (
-    <section id="market-opportunity" data-design-id="market-opportunity-section" className="relative py-24 md:py-32">
+    <section
+      id="market-opportunity"
+      data-design-id="market-opportunity-section"
+      className="relative py-24 md:py-32"
+    >
       <div className="absolute inset-0 bg-grid opacity-40" />
       <div className="absolute top-0 right-0 w-[600px] h-[400px] rounded-full bg-teal-500/[0.04] blur-[120px]" />
 
@@ -73,19 +140,33 @@ export default function MarketOpportunity() {
           transition={{ duration: 0.7 }}
           className="mb-16"
         >
-          <span data-design-id="mo-label" className="text-[10px] tracking-[0.25em] uppercase text-teal-400 font-semibold mb-3 block">
+          <span
+            data-design-id="mo-label"
+            className="text-[10px] tracking-[0.25em] uppercase text-teal-400 font-semibold mb-3 block"
+          >
             Economic Rationale
           </span>
-          <h2 data-design-id="mo-title" className="section-title text-white mb-4">
-            A Multi-Billion Dollar<br />
+          <h2
+            data-design-id="mo-title"
+            className="section-title text-white mb-4"
+          >
+            A Multi-Billion Dollar
+            <br />
             <span className="text-gradient">Opportunity</span>
           </h2>
           <p data-design-id="mo-subtitle" className="section-subtitle">
-            15× capacity growth projected by 2035. ₹45,000 Cr+ domestic manufacturing potential at 75% localisation. A market aligned with Make in India and Viksit Bharat 2047.
+            15× capacity growth projected by 2035. ₹45,000 Cr+ domestic
+            manufacturing potential at 75% localisation. A strategic economic
+            opportunity aligned with Make in India, Viksit Bharat 2047, and
+            India&apos;s climate commitments.
           </p>
         </motion.div>
 
-        <div data-design-id="mo-growth-cards" className="grid md:grid-cols-3 gap-4 mb-16">
+        {/* Market Growth Timeline */}
+        <div
+          data-design-id="mo-growth-cards"
+          className="grid md:grid-cols-3 gap-4 mb-16"
+        >
           {MARKET_GROWTH.map((item, i) => (
             <motion.div
               key={item.year}
@@ -97,7 +178,9 @@ export default function MarketOpportunity() {
               className="stat-card group hover:border-teal-400/20 transition-all"
             >
               <div className="text-xs text-white/40 mb-2">{item.year}</div>
-              <div className="text-3xl md:text-4xl font-bold text-gradient mb-1">{item.value}</div>
+              <div className="text-3xl md:text-4xl font-bold text-gradient mb-1">
+                {item.value}
+              </div>
               <div className="text-sm text-white/50">{item.tr} installed</div>
               {i < 2 && (
                 <ArrowRight className="absolute top-1/2 -right-3 w-5 h-5 text-teal-400/30 hidden md:block" />
@@ -105,8 +188,229 @@ export default function MarketOpportunity() {
             </motion.div>
           ))}
         </div>
+        <p
+          data-design-id="mo-growth-source"
+          className="text-[10px] text-white/25 -mt-12 mb-16 text-right italic"
+        >
+          Source: Grand View Research 2025, @$1,500/TR
+        </p>
 
-        <div data-design-id="mo-fdi-jobs" className="grid md:grid-cols-2 gap-6 mb-16">
+        {/* Make in India Alignment */}
+        <motion.div
+          data-design-id="mo-make-in-india"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          className="rounded-2xl border border-amber-400/15 bg-amber-400/[0.02] p-8 md:p-10 mb-16"
+        >
+          <div className="flex items-center gap-3 mb-6">
+            <div className="w-10 h-10 rounded-xl bg-amber-400/10 flex items-center justify-center">
+              <Factory className="w-5 h-5 text-amber-400" />
+            </div>
+            <div>
+              <h3
+                data-design-id="mo-mii-title"
+                className="text-lg font-semibold text-white"
+              >
+                Make in India Alignment
+              </h3>
+              <p className="text-[10px] text-white/40">
+                Projected domestic manufacturing by 2035: ₹45,000 Cr+ at 75%
+                localisation
+              </p>
+            </div>
+          </div>
+          <p
+            data-design-id="mo-mii-desc"
+            className="text-xs text-white/50 leading-relaxed mb-6"
+          >
+            District cooling is a strategic{" "}
+            <strong className="text-amber-300">
+              Make in India opportunity
+            </strong>
+            . India has significant local manufacturing capacity for most DCS
+            components, with gaps in DCS-specific items (pre-insulated pipes,
+            energy transfer stations) currently imported from UAE/Turkey. A
+            dedicated localisation push can achieve 75%+ domestic content by
+            2035.
+          </p>
+          <h4
+            data-design-id="mo-mii-localisation-title"
+            className="text-xs font-semibold text-amber-400/80 tracking-wider uppercase mb-4"
+          >
+            Localisation Targets (Current → 2035)
+          </h4>
+          <div className="space-y-2.5">
+            {SUPPLY_CHAIN.map((s, i) => (
+              <div
+                key={s.item}
+                data-design-id={`mo-supply-${i + 1}`}
+                className="flex items-center gap-3"
+              >
+                <span className="text-[11px] text-white/50 w-44 shrink-0">
+                  {s.item}
+                </span>
+                <div className="flex-1 flex items-center gap-2">
+                  <span className="text-[10px] text-white/30 font-mono w-16 text-right">
+                    {s.from}
+                  </span>
+                  <ArrowRight className="w-3 h-3 text-amber-400/40 shrink-0" />
+                  <span className="text-[10px] text-amber-400/80 font-mono font-semibold w-16">
+                    {s.to}
+                  </span>
+                  <span className="text-[10px] text-white/30">{s.status}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Chiller Ecosystem */}
+        <motion.div
+          data-design-id="mo-chiller-ecosystem"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          className="mb-16"
+        >
+          <div className="flex items-center gap-3 mb-6">
+            <Wrench className="w-5 h-5 text-teal-400" />
+            <h3
+              data-design-id="mo-chiller-title"
+              className="text-lg font-semibold text-white"
+            >
+              India&apos;s Chiller Ecosystem & Supply Chain
+            </h3>
+          </div>
+          <p
+            data-design-id="mo-chiller-desc"
+            className="text-xs text-white/50 leading-relaxed mb-6"
+          >
+            A mature manufacturing base with{" "}
+            <strong className="text-white/70">~5.7M TR installed</strong>{" "}
+            (growing at 1.1M TR/yr), robust domestic OEM presence, and projected{" "}
+            <strong className="text-white/70">
+              6× growth to 38.1M TR by 2037–38
+            </strong>
+            . Water-cooled centrifugal chillers are the backbone of district
+            cooling systems.
+          </p>
+
+          <div className="grid md:grid-cols-2 gap-6 mb-6">
+            <div data-design-id="mo-chiller-market-stats" className="stat-card">
+              <h4 className="text-xs font-semibold text-teal-400/80 tracking-wider uppercase mb-3">
+                Market Overview
+              </h4>
+              <div className="space-y-2.5">
+                <div className="flex justify-between text-xs">
+                  <span className="text-white/50">Annual Market (2025)</span>
+                  <span className="text-teal-400/80 font-medium">
+                    $575–740M
+                  </span>
+                </div>
+                <div className="flex justify-between text-xs">
+                  <span className="text-white/50">Installed Base</span>
+                  <span className="text-white/80 font-medium">~5.7M TR</span>
+                </div>
+                <div className="flex justify-between text-xs">
+                  <span className="text-white/50">Annual Growth</span>
+                  <span className="text-white/80 font-medium">~1.1M TR/yr</span>
+                </div>
+                <div className="flex justify-between text-xs">
+                  <span className="text-white/50">Projection 2037–38</span>
+                  <span className="text-teal-400/80 font-semibold">
+                    38.1M TR
+                  </span>
+                </div>
+                <div className="flex justify-between text-xs">
+                  <span className="text-white/50">
+                    Water-Cooled Dominance (&gt;200 TR)
+                  </span>
+                  <span className="text-white/80 font-medium">53.6%</span>
+                </div>
+              </div>
+              <p className="text-[10px] text-white/25 mt-3 italic">
+                Source: Grand View / Mordor Intelligence 2025, CLASP–BEE Market
+                Assessment
+              </p>
+            </div>
+
+            <div data-design-id="mo-chiller-segments" className="stat-card">
+              <h4 className="text-xs font-semibold text-teal-400/80 tracking-wider uppercase mb-3">
+                Market Segmentation (by Compressor Type)
+              </h4>
+              <div className="space-y-3">
+                {CHILLER_SEGMENTS.map((seg, i) => (
+                  <div
+                    key={seg.type}
+                    data-design-id={`mo-chiller-seg-${i + 1}`}
+                  >
+                    <div className="flex justify-between text-xs mb-1">
+                      <span className="text-white/60">
+                        {seg.type}{" "}
+                        <span className="text-white/30">({seg.range})</span>
+                      </span>
+                      <span className="text-white/70 font-mono">
+                        ~{seg.share}%
+                      </span>
+                    </div>
+                    <div className="h-2 bg-white/[0.04] rounded-full overflow-hidden">
+                      <motion.div
+                        initial={{ width: 0 }}
+                        whileInView={{ width: `${seg.share}%` }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.3 + i * 0.1, duration: 0.8 }}
+                        className={`h-full ${seg.color}/20 rounded-full`}
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <p className="text-[10px] text-white/25 mt-3 italic">
+                Source: TERI / RAMA Chiller Report
+              </p>
+            </div>
+          </div>
+
+          {/* Domestic Manufacturers */}
+          <div data-design-id="mo-manufacturers" className="stat-card">
+            <h4 className="text-xs font-semibold text-teal-400/80 tracking-wider uppercase mb-4">
+              Domestic Manufacturing Presence
+            </h4>
+            <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+              {MANUFACTURERS.map((m, i) => (
+                <div
+                  key={m.name}
+                  data-design-id={`mo-mfr-${i + 1}`}
+                  className="p-3 rounded-lg bg-white/[0.02] border border-white/[0.04]"
+                >
+                  <p className="text-xs font-semibold text-white/70">
+                    {m.name}
+                  </p>
+                  <p className="text-[10px] text-white/35 mt-0.5">
+                    {m.location}
+                  </p>
+                </div>
+              ))}
+            </div>
+            <p
+              data-design-id="mo-mfr-gap"
+              className="text-[10px] text-white/30 mt-4 italic"
+            >
+              Key gap: DCS-specific items (pre-insulated pipes, energy transfer
+              stations) currently rely on imports — clear Make in India
+              opportunity.
+            </p>
+          </div>
+        </motion.div>
+
+        {/* FDI & Employment */}
+        <div
+          data-design-id="mo-fdi-jobs"
+          className="grid md:grid-cols-2 gap-6 mb-16"
+        >
           <motion.div
             data-design-id="mo-fdi-card"
             initial={{ opacity: 0, x: -20 }}
@@ -117,17 +421,29 @@ export default function MarketOpportunity() {
           >
             <div className="flex items-center gap-3 mb-4">
               <Globe className="w-5 h-5 text-teal-400/70" />
-              <h3 className="text-sm font-semibold text-white">FDI Opportunity (2026–2035): $3–4.5 Billion</h3>
+              <h3 className="text-sm font-semibold text-white">
+                FDI Opportunity (2026–2035): $3–4.5 Billion
+              </h3>
             </div>
             <div className="space-y-2">
               {FDI_ITEMS.map((f, i) => (
-                <div key={i} data-design-id={`mo-fdi-item-${i + 1}`} className="flex justify-between text-xs">
+                <div
+                  key={f.label}
+                  data-design-id={`mo-fdi-item-${i + 1}`}
+                  className="flex justify-between text-xs"
+                >
                   <span className="text-white/50">{f.label}</span>
-                  <span className="text-teal-400/80 font-medium">{f.value}</span>
+                  <span className="text-teal-400/80 font-medium">
+                    {f.value}
+                  </span>
                 </div>
               ))}
             </div>
-            <p className="text-[10px] text-white/30 mt-4">~50% of cumulative $6.7B new capacity investment could involve foreign capital</p>
+            <p className="text-[10px] text-white/30 mt-4">
+              ~50% of cumulative $6.7B new capacity investment could involve
+              foreign capital via equity in PPP concessions, multilateral/export
+              credit debt, and technology imports.
+            </p>
           </motion.div>
 
           <motion.div
@@ -140,20 +456,36 @@ export default function MarketOpportunity() {
           >
             <div className="flex items-center gap-3 mb-4">
               <Users className="w-5 h-5 text-teal-400/70" />
-              <h3 className="text-sm font-semibold text-white">Employment by 2035: 120,000 Jobs</h3>
+              <h3 className="text-sm font-semibold text-white">
+                Employment by 2035: 120,000 Jobs
+              </h3>
             </div>
             <div className="space-y-2">
               {JOBS.map((j, i) => (
-                <div key={i} data-design-id={`mo-jobs-item-${i + 1}`} className="flex justify-between text-xs">
-                  <span className="text-white/50">{j.category} {j.note && <span className="text-white/30">({j.note})</span>}</span>
-                  <span className="text-teal-400/80 font-medium">{j.count}</span>
+                <div
+                  key={j.category}
+                  data-design-id={`mo-jobs-item-${i + 1}`}
+                  className="flex justify-between text-xs"
+                >
+                  <span className="text-white/50">
+                    {j.category}{" "}
+                    {j.note && (
+                      <span className="text-white/30">({j.note})</span>
+                    )}
+                  </span>
+                  <span className="text-teal-400/80 font-medium">
+                    {j.count}
+                  </span>
                 </div>
               ))}
             </div>
-            <p className="text-[10px] text-white/30 mt-4">65% youth · 40% in Tier 2/3 cities</p>
+            <p className="text-[10px] text-white/30 mt-4">
+              65% youth (25–40 age) · 40% in Tier 2/3 cities
+            </p>
           </motion.div>
         </div>
 
+        {/* Data Centre Market — Expanded */}
         <motion.div
           data-design-id="mo-data-centres"
           initial={{ opacity: 0, y: 30 }}
@@ -164,24 +496,133 @@ export default function MarketOpportunity() {
         >
           <div className="flex items-center gap-3 mb-6">
             <Server className="w-5 h-5 text-teal-400" />
-            <h3 data-design-id="mo-dc-title" className="text-lg font-semibold text-white">Data Centres: The Next Frontier</h3>
+            <h3
+              data-design-id="mo-dc-title"
+              className="text-lg font-semibold text-white"
+            >
+              Data Centres: The Next Wave of Growth
+            </h3>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
             {DC_STATS.map((s, i) => (
-              <div key={i} data-design-id={`mo-dc-stat-${i + 1}`} className="stat-card text-center">
+              <div
+                key={s.label}
+                data-design-id={`mo-dc-stat-${i + 1}`}
+                className="stat-card text-center"
+              >
                 <div className="text-lg font-bold text-white">{s.value}</div>
                 <div className="text-[10px] text-white/40">{s.label}</div>
               </div>
             ))}
           </div>
-          <div data-design-id="mo-dc-benefits" className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5">
-            <p className="text-xs text-white/50 leading-relaxed">
-              DCS delivers <strong className="text-teal-400/80">25–30% lifecycle cost savings</strong> for data centres, frees 30% power capacity for IT loads, and enables seawater/STP water integration. Key projects include CtrlS Pharma City (750MW), Yotta Navi Mumbai (33MW), and AdaniConneX pipeline.
-            </p>
+          <div className="grid md:grid-cols-2 gap-4 mb-4">
+            <div
+              data-design-id="mo-dc-benefits"
+              className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5"
+            >
+              <h4 className="text-xs font-semibold text-teal-400/80 tracking-wider uppercase mb-3">
+                Why DCS for Data Centres
+              </h4>
+              <ul className="space-y-2">
+                <li
+                  data-design-id="mo-dc-ben-1"
+                  className="text-xs text-white/50 flex items-start gap-2"
+                >
+                  <span className="w-1 h-1 rounded-full bg-teal-400/50 mt-1.5 shrink-0" />
+                  <strong className="text-teal-400/80">
+                    25–30% lifecycle cost savings
+                  </strong>{" "}
+                  — centralised cooling at scale
+                </li>
+                <li
+                  data-design-id="mo-dc-ben-2"
+                  className="text-xs text-white/50 flex items-start gap-2"
+                >
+                  <span className="w-1 h-1 rounded-full bg-teal-400/50 mt-1.5 shrink-0" />
+                  Frees{" "}
+                  <strong className="text-white/70">
+                    30% of power capacity
+                  </strong>{" "}
+                  for IT loads by offloading cooling
+                </li>
+                <li
+                  data-design-id="mo-dc-ben-3"
+                  className="text-xs text-white/50 flex items-start gap-2"
+                >
+                  <span className="w-1 h-1 rounded-full bg-teal-400/50 mt-1.5 shrink-0" />
+                  PUE improvement from{" "}
+                  <strong className="text-white/70">1.6 → 1.2</strong> —
+                  industry-leading efficiency
+                </li>
+                <li
+                  data-design-id="mo-dc-ben-4"
+                  className="text-xs text-white/50 flex items-start gap-2"
+                >
+                  <span className="w-1 h-1 rounded-full bg-teal-400/50 mt-1.5 shrink-0" />
+                  Enables seawater/STP water integration — critical for
+                  water-stressed zones
+                </li>
+              </ul>
+            </div>
+            <div
+              data-design-id="mo-dc-pipeline"
+              className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5"
+            >
+              <h4 className="text-xs font-semibold text-teal-400/80 tracking-wider uppercase mb-3">
+                Market Dynamics
+              </h4>
+              <ul className="space-y-2">
+                <li
+                  data-design-id="mo-dc-dyn-1"
+                  className="text-xs text-white/50 flex items-start gap-2"
+                >
+                  <Cpu className="w-3 h-3 text-teal-400/40 mt-0.5 shrink-0" />
+                  India&apos;s data centre capacity expanding at{" "}
+                  <strong className="text-white/70">2+ GW pipeline</strong>
+                </li>
+                <li
+                  data-design-id="mo-dc-dyn-2"
+                  className="text-xs text-white/50 flex items-start gap-2"
+                >
+                  <Cpu className="w-3 h-3 text-teal-400/40 mt-0.5 shrink-0" />
+                  <strong className="text-white/70">
+                    60–80% of facilities
+                  </strong>{" "}
+                  in high water-stress zones
+                </li>
+                <li
+                  data-design-id="mo-dc-dyn-3"
+                  className="text-xs text-white/50 flex items-start gap-2"
+                >
+                  <Cpu className="w-3 h-3 text-teal-400/40 mt-0.5 shrink-0" />
+                  Data centre chiller demand growing at{" "}
+                  <strong className="text-white/70">12.4% CAGR</strong> —
+                  110–130K TR new demand/yr
+                </li>
+                <li
+                  data-design-id="mo-dc-dyn-4"
+                  className="text-xs text-white/50 flex items-start gap-2"
+                >
+                  <Cpu className="w-3 h-3 text-teal-400/40 mt-0.5 shrink-0" />
+                  Key projects: CtrlS Pharma City (750MW), Yotta Navi Mumbai
+                  (33MW), AdaniConneX pipeline
+                </li>
+              </ul>
+            </div>
           </div>
+          <p
+            data-design-id="mo-dc-source"
+            className="text-[10px] text-white/25 italic"
+          >
+            Source: Grand View Research 2025, Mordor Intelligence 2025
+          </p>
         </motion.div>
 
-        <div data-design-id="mo-metro-grid" className="grid md:grid-cols-2 gap-6 mb-16">
+        {/* MMRDA & Chennai — Investment Focus */}
+        <div
+          data-design-id="mo-metro-grid"
+          className="grid md:grid-cols-2 gap-6 mb-16"
+        >
           <motion.div
             data-design-id="mo-mmr"
             initial={{ opacity: 0, y: 20 }}
@@ -192,27 +633,65 @@ export default function MarketOpportunity() {
           >
             <div className="flex items-center gap-3 mb-4">
               <MapPin className="w-5 h-5 text-cyan-400" />
-              <h3 className="text-sm font-semibold text-white">Mumbai Metropolitan Region (MMR)</h3>
+              <h3 className="text-sm font-semibold text-white">
+                Mumbai Metropolitan Region (MMR)
+              </h3>
             </div>
             <div className="grid grid-cols-2 gap-3 mb-4">
-              <div data-design-id="mo-mmr-invest" className="text-center p-3 rounded-lg bg-white/[0.03]">
+              <div
+                data-design-id="mo-mmr-invest"
+                className="text-center p-3 rounded-lg bg-white/[0.03]"
+              >
                 <div className="text-lg font-bold text-cyan-400">$2.5B</div>
-                <div className="text-[10px] text-white/40">DCS Investment</div>
-              </div>
-              <div data-design-id="mo-mmr-cap" className="text-center p-3 rounded-lg bg-white/[0.03]">
-                <div className="text-lg font-bold text-white">1M RT</div>
-                <div className="text-[10px] text-white/40">Addressable Capacity</div>
-              </div>
-            </div>
-            <div className="space-y-2">
-              {MMR_PROJECTS.map((p, i) => (
-                <div key={i} data-design-id={`mo-mmr-project-${i + 1}`} className="flex justify-between text-xs">
-                  <span className="text-white/50">{p.name}</span>
-                  <span className="text-cyan-400/70 font-mono">{p.capacity}</span>
+                <div className="text-[10px] text-white/40">
+                  DCS Investment Potential
                 </div>
-              ))}
+              </div>
+              <div
+                data-design-id="mo-mmr-cap"
+                className="text-center p-3 rounded-lg bg-white/[0.03]"
+              >
+                <div className="text-lg font-bold text-white">1M RT</div>
+                <div className="text-[10px] text-white/40">
+                  Addressable Capacity
+                </div>
+              </div>
             </div>
-            <div data-design-id="mo-mmr-tariff" className="mt-3 text-[10px] text-white/30">MERC Industrial Tariff: ₹5.3–5.8/kWh · Peak Power Reduction: 1.5 GW</div>
+            <ul className="space-y-1.5 mb-3">
+              <li
+                data-design-id="mo-mmr-peak"
+                className="text-xs text-white/50 flex items-start gap-2"
+              >
+                <span className="w-1 h-1 rounded-full bg-cyan-400/50 mt-1.5 shrink-0" />
+                <strong className="text-white/70">1.5 GW</strong> peak power
+                demand reduction potential
+              </li>
+              <li
+                data-design-id="mo-mmr-merc"
+                className="text-xs text-white/50 flex items-start gap-2"
+              >
+                <span className="w-1 h-1 rounded-full bg-cyan-400/50 mt-1.5 shrink-0" />
+                MERC breakthrough: concessional industrial tariff at{" "}
+                <strong className="text-white/70">₹5.3–5.8/kWh</strong> —
+                enabling DCS economics
+              </li>
+              <li
+                data-design-id="mo-mmr-mmrda"
+                className="text-xs text-white/50 flex items-start gap-2"
+              >
+                <span className="w-1 h-1 rounded-full bg-cyan-400/50 mt-1.5 shrink-0" />
+                MMRDA planning authority across BKC, Dharavi, Navi Mumbai &
+                Airoli — multiple high-density DCS-ready zones
+              </li>
+              <li
+                data-design-id="mo-mmr-nmia"
+                className="text-xs text-white/50 flex items-start gap-2"
+              >
+                <span className="w-1 h-1 rounded-full bg-cyan-400/50 mt-1.5 shrink-0" />
+                Navi Mumbai International Airport (NMIA) — greenfield DCS
+                opportunity
+              </li>
+            </ul>
           </motion.div>
 
           <motion.div
@@ -225,31 +704,79 @@ export default function MarketOpportunity() {
           >
             <div className="flex items-center gap-3 mb-4">
               <MapPin className="w-5 h-5 text-amber-400" />
-              <h3 className="text-sm font-semibold text-white">Chennai Third Master Plan</h3>
+              <h3 className="text-sm font-semibold text-white">
+                Chennai Third Master Plan
+              </h3>
             </div>
             <div className="grid grid-cols-2 gap-3 mb-4">
-              <div data-design-id="mo-chen-invest" className="text-center p-3 rounded-lg bg-white/[0.03]">
+              <div
+                data-design-id="mo-chen-invest"
+                className="text-center p-3 rounded-lg bg-white/[0.03]"
+              >
                 <div className="text-lg font-bold text-amber-400">$2.0B</div>
-                <div className="text-[10px] text-white/40">DCS Investment</div>
-              </div>
-              <div data-design-id="mo-chen-cap" className="text-center p-3 rounded-lg bg-white/[0.03]">
-                <div className="text-lg font-bold text-white">800K RT</div>
-                <div className="text-[10px] text-white/40">Addressable Capacity</div>
-              </div>
-            </div>
-            <div className="space-y-2">
-              {CHENNAI_PROJECTS.map((p, i) => (
-                <div key={i} data-design-id={`mo-chen-project-${i + 1}`} className="flex items-center gap-2 text-xs text-white/50">
-                  <span className="w-1.5 h-1.5 rounded-full bg-amber-400/40" />
-                  {p.name}
+                <div className="text-[10px] text-white/40">
+                  DCS Investment Potential
                 </div>
-              ))}
+              </div>
+              <div
+                data-design-id="mo-chen-cap"
+                className="text-center p-3 rounded-lg bg-white/[0.03]"
+              >
+                <div className="text-lg font-bold text-white">800K RT</div>
+                <div className="text-[10px] text-white/40">
+                  Addressable Capacity
+                </div>
+              </div>
             </div>
-            <div data-design-id="mo-chen-savings" className="mt-3 text-[10px] text-white/30">Annual Energy Savings: 4,000 GWh · TN SPC Steering Committee active</div>
+            <ul className="space-y-1.5 mb-3">
+              <li
+                data-design-id="mo-chen-first"
+                className="text-xs text-white/50 flex items-start gap-2"
+              >
+                <span className="w-1 h-1 rounded-full bg-amber-400/50 mt-1.5 shrink-0" />
+                <strong className="text-white/70">First Indian city</strong>{" "}
+                embedding cooling in master planning
+              </li>
+              <li
+                data-design-id="mo-chen-savings"
+                className="text-xs text-white/50 flex items-start gap-2"
+              >
+                <span className="w-1 h-1 rounded-full bg-amber-400/50 mt-1.5 shrink-0" />
+                <strong className="text-white/70">4,000 GWh</strong> annual
+                energy savings potential
+              </li>
+              <li
+                data-design-id="mo-chen-tariff"
+                className="text-xs text-white/50 flex items-start gap-2"
+              >
+                <span className="w-1 h-1 rounded-full bg-amber-400/50 mt-1.5 shrink-0" />
+                TNERC tariff petition underway — state progressing regulatory
+                framework
+              </li>
+              <li
+                data-design-id="mo-chen-spc"
+                className="text-xs text-white/50 flex items-start gap-2"
+              >
+                <span className="w-1 h-1 rounded-full bg-amber-400/50 mt-1.5 shrink-0" />
+                TN SPC Steering Committee active · TIDCO projects in pipeline
+              </li>
+              <li
+                data-design-id="mo-chen-clusters"
+                className="text-xs text-white/50 flex items-start gap-2"
+              >
+                <span className="w-1 h-1 rounded-full bg-amber-400/50 mt-1.5 shrink-0" />
+                4 priority clusters: OMR IT Corridor, Data Centre Belt, Airport,
+                Anna Salai
+              </li>
+            </ul>
           </motion.div>
         </div>
 
-        <div data-design-id="mo-bottom-row" className="grid md:grid-cols-2 gap-6">
+        {/* New Entrants */}
+        <div
+          data-design-id="mo-bottom-row"
+          className="grid md:grid-cols-2 gap-6"
+        >
           <motion.div
             data-design-id="mo-new-entrants"
             initial={{ opacity: 0, y: 20 }}
@@ -260,15 +787,19 @@ export default function MarketOpportunity() {
           >
             <div className="flex items-center gap-3 mb-4">
               <Briefcase className="w-5 h-5 text-teal-400/70" />
-              <h3 className="text-sm font-semibold text-white">New Market Entrants</h3>
+              <h3 className="text-sm font-semibold text-white">
+                New Market Entrants
+              </h3>
             </div>
             <p className="text-xs text-white/50 mb-4">
-              Tabreed&apos;s PPP concessions catalysed market entry by major Indian and global corporates:
+              Tabreed&apos;s PPP concessions catalysed market entry by major
+              Indian and global corporates, validating the commercial viability
+              of district cooling in India:
             </p>
             <div className="flex flex-wrap gap-2">
               {NEW_ENTRANTS.map((name, i) => (
                 <span
-                  key={i}
+                  key={name}
                   data-design-id={`mo-entrant-${i + 1}`}
                   className="px-3 py-1.5 text-xs text-white/70 bg-white/[0.04] border border-white/[0.06] rounded-lg"
                 >
@@ -279,7 +810,7 @@ export default function MarketOpportunity() {
           </motion.div>
 
           <motion.div
-            data-design-id="mo-supply-chain"
+            data-design-id="mo-growth-trajectory"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -287,20 +818,76 @@ export default function MarketOpportunity() {
             className="stat-card"
           >
             <div className="flex items-center gap-3 mb-4">
-              <Factory className="w-5 h-5 text-teal-400/70" />
-              <h3 className="text-sm font-semibold text-white">Supply Chain: India&apos;s Chiller Ecosystem</h3>
+              <BarChart3 className="w-5 h-5 text-teal-400/70" />
+              <h3 className="text-sm font-semibold text-white">
+                Chiller Market Growth Trajectory
+              </h3>
             </div>
-            <p className="text-xs text-white/50 mb-4">
-              ~5.7M TR installed base · Growing at 1.1M TR/yr · Projected 38.1M TR by 2037–38
-            </p>
-            <div className="space-y-2">
-              {SUPPLY_CHAIN.map((s, i) => (
-                <div key={i} data-design-id={`mo-supply-${i + 1}`} className="flex justify-between text-xs">
-                  <span className="text-white/50">{s.item}</span>
-                  <span className="text-teal-400/60">{s.status}</span>
+            <div className="space-y-3">
+              <div
+                data-design-id="mo-traj-2018"
+                className="flex items-center gap-3"
+              >
+                <span className="text-xs text-white/40 w-20 shrink-0">
+                  2018
+                </span>
+                <div className="flex-1 h-6 bg-white/[0.03] rounded-full overflow-hidden">
+                  <motion.div
+                    initial={{ width: 0 }}
+                    whileInView={{ width: "15%" }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.3, duration: 0.8 }}
+                    className="h-full bg-teal-400/15 rounded-full flex items-center pl-2"
+                  >
+                    <span className="text-[10px] text-white/60">5.7M TR</span>
+                  </motion.div>
                 </div>
-              ))}
+              </div>
+              <div
+                data-design-id="mo-traj-2025"
+                className="flex items-center gap-3"
+              >
+                <span className="text-xs text-white/40 w-20 shrink-0">
+                  2025 (est.)
+                </span>
+                <div className="flex-1 h-6 bg-white/[0.03] rounded-full overflow-hidden">
+                  <motion.div
+                    initial={{ width: 0 }}
+                    whileInView={{ width: "24%" }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.4, duration: 0.8 }}
+                    className="h-full bg-teal-400/20 rounded-full flex items-center pl-2"
+                  >
+                    <span className="text-[10px] text-white/60">~8–9M TR</span>
+                  </motion.div>
+                </div>
+              </div>
+              <div
+                data-design-id="mo-traj-2038"
+                className="flex items-center gap-3"
+              >
+                <span className="text-xs text-white/40 w-20 shrink-0">
+                  2037–38
+                </span>
+                <div className="flex-1 h-6 bg-white/[0.03] rounded-full overflow-hidden">
+                  <motion.div
+                    initial={{ width: 0 }}
+                    whileInView={{ width: "100%" }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.5, duration: 1 }}
+                    className="h-full bg-teal-400/25 rounded-full flex items-center pl-2"
+                  >
+                    <span className="text-[10px] text-white/70 font-semibold">
+                      38.1M TR
+                    </span>
+                  </motion.div>
+                </div>
+              </div>
             </div>
+            <p className="text-[10px] text-white/25 mt-3 italic">
+              Source: CLASP–BEE Updated Market Assessment for Chillers in India
+              (2023)
+            </p>
           </motion.div>
         </div>
       </div>

@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ChevronDown, Zap, Building2, Leaf, TrendingUp } from "lucide-react";
+import { Building2, ChevronDown, Leaf, TrendingUp, Zap } from "lucide-react";
+import Image from "next/image";
 
 const STATS = [
   { value: "322,500 TR", label: "Installed Capacity", icon: Zap },
@@ -16,7 +17,10 @@ export default function Hero() {
       data-design-id="hero-section"
       className="relative min-h-screen flex flex-col justify-center overflow-hidden"
     >
-      <div className="absolute inset-0 bg-grid bg-radial-teal" data-design-id="hero-bg" />
+      <div
+        className="absolute inset-0 bg-grid bg-radial-teal"
+        data-design-id="hero-bg"
+      />
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] rounded-full bg-teal-500/[0.06] blur-[120px]" />
       <div className="absolute bottom-0 right-0 w-[500px] h-[400px] rounded-full bg-teal-600/[0.04] blur-[100px]" />
 
@@ -27,14 +31,35 @@ export default function Hero() {
           transition={{ duration: 0.8 }}
           className="flex flex-col items-center text-center"
         >
-          <div data-design-id="hero-event-badges" className="flex items-center gap-3 mb-8">
-            <span className="px-3 py-1 text-[10px] tracking-[0.2em] uppercase font-semibold text-teal-400 bg-teal-400/10 border border-teal-400/20 rounded-full">
-              BEE
-            </span>
-            <span className="text-white/30">×</span>
-            <span className="px-3 py-1 text-[10px] tracking-[0.2em] uppercase font-semibold text-teal-400 bg-teal-400/10 border border-teal-400/20 rounded-full">
-              UNEP
-            </span>
+          <div
+            data-design-id="hero-event-badges"
+            className="flex items-center gap-4 mb-8"
+          >
+            <div
+              data-design-id="hero-bee-logo"
+              className="flex items-center justify-center h-12 w-12 rounded-lg bg-white/10 border border-white/10 p-1.5 overflow-hidden"
+            >
+              <Image
+                src="/bee-logo.png"
+                alt="Bureau of Energy Efficiency"
+                width={40}
+                height={40}
+                className="object-contain"
+              />
+            </div>
+            <span className="text-white/30 text-lg">×</span>
+            <div
+              data-design-id="hero-unep-logo"
+              className="flex items-center justify-center h-12 w-12 rounded-lg bg-white/10 border border-white/10 p-1.5 overflow-hidden"
+            >
+              <Image
+                src="/unep-logo.png"
+                alt="United Nations Environment Programme"
+                width={40}
+                height={40}
+                className="object-contain"
+              />
+            </div>
             <span className="text-white/30">·</span>
             <span className="text-[10px] tracking-[0.2em] uppercase text-white/40">
               Roundtable Workshop · 25 March 2026
@@ -66,7 +91,8 @@ export default function Hero() {
               data-design-id="hero-subtitle"
               className="text-xs tracking-[0.15em] uppercase text-white/40 mb-8"
             >
-              Transforming Architecture for National District-cooling Advancement & Viability
+              Transforming Architecture for National District-cooling
+              Advancement & Viability
             </p>
           </motion.div>
 
@@ -79,14 +105,24 @@ export default function Hero() {
           >
             <div className="flex items-start gap-2 text-left">
               <div className="w-1.5 h-1.5 rounded-full bg-teal-400 mt-2 shrink-0" />
-              <p data-design-id="hero-bullet-1" className="text-sm text-white/60 leading-relaxed">
-                <strong className="text-white/80">70+ projects.</strong> Multiple technology solutions and implementation models proven.
+              <p
+                data-design-id="hero-bullet-1"
+                className="text-sm text-white/60 leading-relaxed"
+              >
+                <strong className="text-white/80">70+ projects.</strong>{" "}
+                Multiple technology solutions and implementation models proven.
               </p>
             </div>
             <div className="flex items-start gap-2 text-left">
               <div className="w-1.5 h-1.5 rounded-full bg-teal-400 mt-2 shrink-0" />
-              <p data-design-id="hero-bullet-2" className="text-sm text-white/60 leading-relaxed">
-                India already does district cooling — needs <strong className="text-white/80">standardisation, policy clarity, merchant utility model.</strong>
+              <p
+                data-design-id="hero-bullet-2"
+                className="text-sm text-white/60 leading-relaxed"
+              >
+                India already does district cooling — needs{" "}
+                <strong className="text-white/80">
+                  standardisation, policy clarity, merchant utility model.
+                </strong>
               </p>
             </div>
           </motion.div>
@@ -108,7 +144,9 @@ export default function Hero() {
                 className="stat-card group hover:border-teal-400/20 transition-all duration-300"
               >
                 <stat.icon className="w-5 h-5 text-teal-400/60 mb-3 group-hover:text-teal-400 transition-colors" />
-                <div className="text-2xl md:text-3xl font-bold text-white mb-1">{stat.value}</div>
+                <div className="text-2xl md:text-3xl font-bold text-white mb-1">
+                  {stat.value}
+                </div>
                 <div className="text-xs text-white/40">{stat.label}</div>
               </motion.div>
             ))}
@@ -122,9 +160,13 @@ export default function Hero() {
             className="mt-16 p-4 rounded-xl border border-white/[0.06] bg-white/[0.02] max-w-xl"
           >
             <p className="text-xs text-white/40 mb-1">Presented by</p>
-            <p className="text-sm font-semibold text-white/90">SP Sudheer Perla</p>
-            <p className="text-xs text-white/50">Senior Advisor, UNEP India · 16 years in District Cooling</p>
-            <p className="text-[10px] text-teal-400/60 mt-1">$2bn+ in DCS greenfield, M&A, restructuring across GCC & India</p>
+            <p className="text-sm font-semibold text-white/90">Sudheer Perla</p>
+            <p className="text-xs text-white/50">
+              Senior Advisor, UNEP India · 16 years in District Cooling
+            </p>
+            <p className="text-[10px] text-teal-400/60 mt-1">
+              $2bn+ in DCS greenfield, M&A, restructuring across GCC & India
+            </p>
           </motion.div>
         </motion.div>
 
@@ -136,10 +178,16 @@ export default function Hero() {
           className="flex justify-center mt-12"
         >
           <button
-            onClick={() => document.getElementById("landscape")?.scrollIntoView({ behavior: "smooth" })}
+            onClick={() =>
+              document
+                .getElementById("landscape")
+                ?.scrollIntoView({ behavior: "smooth" })
+            }
             className="flex flex-col items-center gap-2 text-white/30 hover:text-teal-400 transition-colors group"
           >
-            <span className="text-[10px] tracking-widest uppercase">Explore</span>
+            <span className="text-[10px] tracking-widest uppercase">
+              Explore
+            </span>
             <ChevronDown size={18} className="animate-bounce" />
           </button>
         </motion.div>
