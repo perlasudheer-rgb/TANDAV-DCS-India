@@ -155,10 +155,9 @@ export default function MarketOpportunity() {
             <span className="text-gradient">Opportunity</span>
           </h2>
           <p data-design-id="mo-subtitle" className="section-subtitle">
-            15× capacity growth projected by 2035. ₹45,000 Cr+ domestic
-            manufacturing potential at 75% localisation. A strategic economic
-            opportunity aligned with Make in India, Viksit Bharat 2047, and
-            India&apos;s climate commitments.
+            District cooling is not just an energy efficiency solution — it is a
+            strategic economic opportunity aligned with Make in India, Viksit
+            Bharat, and India&apos;s climate commitments.
           </p>
         </motion.div>
 
