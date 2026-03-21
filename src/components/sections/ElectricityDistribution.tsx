@@ -418,7 +418,7 @@ export default function ElectricityDistribution() {
             data-design-id="ed-td-title"
             className="text-lg font-semibold text-white mb-6"
           >
-            Investment Reallocation: From T&D to DCS
+            Investment Reallocation: From Transmission & Distribution (T&D) to District Cooling Systems (DCS)
           </h3>
           <div className="grid md:grid-cols-3 gap-6 mb-6">
             <div
