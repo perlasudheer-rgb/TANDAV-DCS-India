@@ -4,14 +4,14 @@ import { motion } from "framer-motion";
 import { Lightbulb, MessageSquare, Rocket, Scale } from "lucide-react";
 
 const QUESTIONS = [
-  "What role would each category of stakeholders play to support the hub — district cooling developers & OEMs, think tanks/CSOs, multi-lateral bodies, financial institutions?",
+  "What role should each stakeholder category — developers, OEMs, think tanks, multilateral bodies, financial institutions — play to support the hub?",
   "How would India\u2019s new carbon trading scheme benefit District Cooling activities? Can there be other incentive structures?",
-  "How should DCS be integrated into urban master plans, development control regulations and better aligned with other energy efficiency programmes including ECBC?",
+  "How should DCS be integrated into urban master plans, development control regulations, and aligned with programmes like ECBC?",
   "What role should centre, state and city governments best play in DCS market development?",
   "How can the DCS Hub best support project development from feasibility to financial close?",
   "What financing instruments (green bonds, climate finance, MDB support) can bridge the bankability gap?",
   "What approaches can be adopted for market awareness and capacity building programmes especially with real estate developers, large Indian corporates and MNC tenants, urban planners, engineering consultants etc?",
-  "What approach can be adopted after initial years for financial sustainability through monetisation of the hub activities?",
+  "How can the hub achieve financial sustainability through monetisation of its activities after the initial years?",
 ];
 
 const ACTIONS = [
