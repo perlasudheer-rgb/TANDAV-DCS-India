@@ -19,7 +19,9 @@ COPY . .
 
 ENV NEXT_TELEMETRY_DISABLED=1
 ENV NODE_ENV=production
-RUN npm run build
+ENV STANDALONE=true
+ENV BUILD_DIR=.next-build
+RUN npm run build:docker
 
 # ── Stage 3: Production runtime ─────────────────────────────────────
 FROM node:20-slim AS runner

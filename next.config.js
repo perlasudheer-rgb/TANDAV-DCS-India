@@ -1,10 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Use different output dir ONLY for local production builds
-  output: 'standalone',
-  distDir: process.env.NODE_ENV === 'production'
-    ? (process.env.BUILD_DIR || '.next-build')
-    : '.next',
+  // Use standalone output only for Docker/Cloud Run builds (set via STANDALONE=true)
+  ...(process.env.STANDALONE === 'true' ? { output: 'standalone' } : {}),
+  // Custom distDir only for local Docker builds
+  ...(process.env.BUILD_DIR ? { distDir: process.env.BUILD_DIR } : {}),
   // Enable CORS for Design Mode to load resources cross-origin (dev only)
   // Note: Do NOT set allowedDevOrigins - the default allows all origins in dev mode
   async headers() {
