@@ -115,12 +115,29 @@ const CHILLER_SEGMENTS = [
 ];
 
 const MANUFACTURERS = [
-  { name: "Trane (Ingersoll Rand)", location: "Pune" },
-  { name: "Carrier", location: "Gurugram & Hyderabad" },
-  { name: "Blue Star", location: "India\u2019s largest domestic brand" },
-  { name: "Grundfos / KSB / Kirloskar", location: "Pune, Bengaluru" },
+  {
+    name: "Trane (Ingersoll Rand)",
+    location: "Chillers & HVAC Systems — Pune",
+  },
+  {
+    name: "Carrier",
+    location: "Chillers & Air Handling Units — Gurugram & Hyderabad",
+  },
+  { name: "Daikin", location: "Chillers & VRV Systems — Neemrana, Rajasthan" },
+  {
+    name: "Blue Star / Voltas",
+    location: "Chillers & Packaged AC — India\u2019s largest domestic brands",
+  },
+  { name: "Danfoss", location: "Valves, Drives & Heat Exchangers — Chennai" },
+  {
+    name: "Grundfos / KSB / Kirloskar",
+    location: "Pumps & Motors — Pune, Bengaluru",
+  },
   { name: "Alfa Laval / SWEP", location: "Heat Exchangers — Pune" },
-  { name: "Honeywell / Schneider", location: "Controls — Pune, Bengaluru" },
+  {
+    name: "Honeywell / Schneider",
+    location: "Controls & Automation — Pune, Bengaluru",
+  },
   {
     name: "Paharpur / Baltimore Aircoil",
     location: "Cooling Towers — domestic",

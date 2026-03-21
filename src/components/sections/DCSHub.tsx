@@ -15,7 +15,7 @@ import {
 const FUNCTIONS = [
   {
     icon: Landmark,
-    title: "Government & Multilateral Coordination",
+    title: "Government Coordination for Policy Development",
     desc: "Co-ordination body to catalyse multi-ministerial action at centre, state, and city levels.",
   },
   {
@@ -66,7 +66,7 @@ export default function DCSHub() {
             data-design-id="hub-title"
             className="section-title text-white mb-4 mx-auto"
           >
-            Government of India&apos;s
+            BEE, MoP, MoHUA Anchored
             <br />
             <span className="text-gradient">DCS Hub</span>
           </h2>
@@ -96,8 +96,8 @@ export default function DCSHub() {
             data-design-id="hub-subtitle"
             className="section-subtitle mx-auto text-center"
           >
-            A dedicated platform by UNEP and World Bank to catalyse India&apos;s
-            district cooling market.
+            Implementation support and program management by UNEP and World Bank
+            through AHEAD to catalyse India&apos;s district cooling market.
           </p>
         </motion.div>
 
