@@ -7,6 +7,7 @@
     "start": "next start -H 0.0.0.0 -p ${PORT:-3000}",
     "build": "next build",
     "build:docker": "STANDALONE=true BUILD_DIR=.next-build next build",
+    "build:local": "STANDALONE=true BUILD_DIR=.next-build next build",
     "lint": "bunx biome lint --write && bunx tsc --noEmit",
     "format": "bunx biome format --write"
   },
