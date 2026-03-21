@@ -137,6 +137,14 @@ export default function ElectricityDistribution() {
             </motion.div>
           ))}
         </div>
+        <p
+          data-design-id="ed-peak-source"
+          className="text-[10px] text-white/25 -mt-12 mb-16 text-right italic"
+        >
+          Source: CEA — All India Peak Demand Met (May 2024); AC share &
+          projections — CLASP–BEE India Room AC Market Assessment, ICAP / India
+          Cooling Action Plan (MoEFCC 2019)
+        </p>
 
         {/* TES as Proven Global Solution */}
         <motion.div
