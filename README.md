@@ -1,36 +1,81 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# DCS India Workshop
 
-## Getting Started
+A [Next.js](https://nextjs.org) application deployed on **Google Cloud Run**.
 
-First, run the development server:
+## Getting Started (Local Development)
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Deploy to Google Cloud Run
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Prerequisites
+
+1. Install the [Google Cloud CLI](https://cloud.google.com/sdk/docs/install)
+2. Authenticate: `gcloud auth login`
+3. Set your project: `gcloud config set project <YOUR_PROJECT_ID>`
+
+### One-command deploy
+
+```bash
+./deploy.sh
+```
+
+This script will:
+- Enable the required GCP APIs (Cloud Run, Cloud Build, Artifact Registry)
+- Create an Artifact Registry Docker repository (if it doesn't exist)
+- Build the container image via Cloud Build
+- Deploy it to Cloud Run
+- Print the public URL
+
+### Options
+
+```bash
+./deploy.sh --project my-gcp-project   # explicit project ID
+./deploy.sh --region us-central1        # override region (default: asia-south1)
+./deploy.sh --service my-service-name   # override service name
+```
+
+### Manual deploy (without the script)
+
+```bash
+# 1. Build & push with Cloud Build
+gcloud builds submit \
+  --config cloudbuild.yaml \
+  --substitutions=_SERVICE_NAME=dcs-india-workshop,_REGION=asia-south1
+
+# 2. Or deploy directly from source (simplest)
+gcloud run deploy dcs-india-workshop \
+  --source . \
+  --region asia-south1 \
+  --allow-unauthenticated
+```
+
+### Environment variables
+
+Set runtime env vars on Cloud Run:
+
+```bash
+gcloud run services update dcs-india-workshop \
+  --region asia-south1 \
+  --set-env-vars "KEY=value"
+```
+
+## Project Structure
+
+| File               | Purpose                                    |
+| ------------------ | ------------------------------------------ |
+| `Dockerfile`       | Multi-stage production build for Cloud Run |
+| `cloudbuild.yaml`  | Cloud Build pipeline configuration         |
+| `deploy.sh`        | One-command deploy script                  |
+| `.dockerignore`    | Files excluded from Docker build context   |
 
 ## Learn More
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- [Next.js Documentation](https://nextjs.org/docs)
+- [Cloud Run Documentation](https://cloud.google.com/run/docs)
+- [Cloud Build Documentation](https://cloud.google.com/build/docs)

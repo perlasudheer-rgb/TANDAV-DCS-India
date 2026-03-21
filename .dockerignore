@@ -1,0 +1,9 @@
+node_modules
+.next
+.next-build
+.git
+.gitignore
+*.md
+deploy.sh
+cloudbuild.yaml
+.env*
