@@ -72,7 +72,7 @@ const PROJECTS: Project[] = [
     status: "awarded",
     highlights: [
       "Largest planned industrial DCS project globally",
-      "19,000-acre pharma/biotech SEZ",
+      "3,700-acre bulk drug park",
       "Serves process + comfort cooling — Cooling-as-a-Service",
       "STP water integration",
       "Catalysed market entry of Adani, Keppel, Tata Power",

@@ -8,22 +8,15 @@ import {
   DollarSign,
   Handshake,
   Plane,
-  Server,
   Zap,
 } from "lucide-react";
 
 const DEPLOYMENT_MODELS = [
   {
-    title: "Captive Systems",
-    desc: "End-customer builds & operates DCS for own use",
-    examples: "CtrlS Data Centres, Yotta Navi Mumbai, Reliance Jio",
+    title: "Captive Campus-Based Systems",
+    desc: "End-customer or master developer builds & operates DCS for own use within owned campuses (IT parks, SEZs, townships, data centres)",
+    examples: "CtrlS Data Centres, Yotta Navi Mumbai, Reliance Jio, Infosys Pocharam, ITC Green Centre, Wipro Campuses",
     icon: Building,
-  },
-  {
-    title: "Campus-Based",
-    desc: "Single master developer supplies cooling within owned campus (IT parks, SEZs, townships)",
-    examples: "Infosys Pocharam, ITC Green Centre, Wipro Campuses",
-    icon: Server,
   },
   {
     title: "Airport Developments",
@@ -118,7 +111,7 @@ export default function Landscape() {
 
         <div
           data-design-id="landscape-models-grid"
-          className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-20"
+          className="grid md:grid-cols-3 gap-4 mb-20"
         >
           {DEPLOYMENT_MODELS.map((model, i) => (
             <motion.div
