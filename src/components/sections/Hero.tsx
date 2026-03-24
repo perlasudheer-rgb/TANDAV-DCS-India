@@ -37,14 +37,14 @@ export default function Hero() {
           >
             <div
               data-design-id="hero-bee-logo"
-              className="flex items-center justify-center h-12 w-12 rounded-lg bg-white/10 border border-white/10 p-1.5 overflow-hidden"
+              className="flex items-center justify-center h-12 rounded-lg bg-white/95 border border-white/10 px-2.5 py-1 overflow-hidden"
             >
               <Image
                 src="/bee-logo.png"
                 alt="Bureau of Energy Efficiency"
-                width={40}
+                width={140}
                 height={40}
-                className="object-contain"
+                className="object-contain h-9 w-auto"
               />
             </div>
             <span className="text-white/30 text-lg">×</span>
