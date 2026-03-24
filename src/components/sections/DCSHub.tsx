@@ -64,12 +64,16 @@ export default function DCSHub() {
         >
           <h2
             data-design-id="hub-title"
-            className="section-title text-white mb-4 mx-auto"
+            className="section-title text-white mb-2 mx-auto"
           >
-            BEE, MoP, MoHUA Anchored
-            <br />
             <span className="text-gradient">DCS Hub</span>
           </h2>
+          <p
+            data-design-id="hub-convergence-note"
+            className="text-sm text-white/50 mb-4 italic"
+          >
+            (Convergence between ministries and relevant departments would facilitate more focused outcomes)
+          </p>
           <motion.div
             data-design-id="hub-tandav-reveal"
             initial={{ opacity: 0, scale: 0.95 }}

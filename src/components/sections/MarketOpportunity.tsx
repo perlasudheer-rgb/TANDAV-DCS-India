@@ -67,6 +67,12 @@ const SUPPLY_CHAIN = [
     to: "85–95%",
   },
   {
+    item: "Plate Heat Exchangers",
+    status: "Fully localisable",
+    from: "60–70%",
+    to: "85–95%",
+  },
+  {
     item: "Pre-insulated Piping",
     status: "Import → local mfg",
     from: "40–50%",

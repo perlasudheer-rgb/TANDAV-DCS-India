@@ -34,7 +34,7 @@ const BARRIERS = [
     severityColor: "text-amber-400 bg-amber-400/10 border-amber-400/20",
     title: "Financial & Bankability",
     issues: [
-      "~₹1,500/TR upfront capex with 10–12 year payback — needs patient capital",
+      "~$1,500/TR upfront capex with 10–12 year payback — needs patient capital",
       "No standardised concession agreements — each project negotiates from scratch",
       "Banks unfamiliar with DCS as asset class — limited precedent",
     ],

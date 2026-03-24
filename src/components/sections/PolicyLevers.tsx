@@ -2,58 +2,18 @@
 
 import { motion } from "framer-motion";
 import {
-  BookOpen,
   Building2,
   Factory,
-  GraduationCap,
   Landmark,
   MapPin,
-  Scale,
   Target,
 } from "lucide-react";
 
-const MOHUA_WORKSTREAMS = [
-  {
-    num: "01",
-    title: "Regulatory & Institutional Framework",
-    icon: Scale,
-    actions: [
-      "National DCS Steering Committee with inter-ministerial representation",
-      "Governance framework for technical standards, tariff methodologies, SLAs, consumer protection",
-    ],
-    target: "National regulatory framework operational by 2028",
-  },
-  {
-    num: "02",
-    title: "Building Codes & Standards",
-    icon: BookOpen,
-    actions: [
-      "Dedicated DCS chapter for NBC and ECBC with design standards and performance benchmarks",
-      "BIS standards for DCS equipment specifications",
-    ],
-    target: "NBC/ECBC amendments notified by 2027",
-  },
-  {
-    num: "03",
-    title: "Urban Planning Integration",
-    icon: MapPin,
-    actions: [
-      "Model guidelines for ULBs to integrate DCS zones, utility corridors, energy centres into master plans",
-      "Linkages with Smart Cities Mission, AMRUT 2.0, National Cooling Action Plan",
-    ],
-    target: "Advisory to all State ULBs by 2026",
-  },
-  {
-    num: "04",
-    title: "Centre of Excellence & Capacity Building",
-    icon: GraduationCap,
-    actions: [
-      "National CoE for District Cooling as knowledge hub",
-      "Standardised feasibility study templates, financial models, toolkits",
-      "GIFT City as live demonstration facility",
-    ],
-    target: "CoE operational by 2027; 500+ professionals trained by 2030",
-  },
+const MOHUA_FOCUS_AREAS = [
+  "Regulatory and Institutional Framework for development of District Cooling",
+  "Review of Building Codes and Standards",
+  "Pathways to integrate with Urban Planning",
+  "Broader Capacity Building Initiatives",
 ];
 
 export default function PolicyLevers() {
@@ -220,99 +180,47 @@ export default function PolicyLevers() {
           transition={{ duration: 0.7 }}
           className="mb-8"
         >
-          <div className="flex items-center gap-3 mb-8">
+          <div className="flex items-center gap-3 mb-6">
             <div className="w-10 h-10 rounded-xl bg-teal-400/10 flex items-center justify-center">
               <Building2 className="w-5 h-5 text-teal-400" />
             </div>
-            <div>
-              <h3
-                data-design-id="pl-mohua-title"
-                className="text-lg font-semibold text-white"
-              >
-                MoHUA Policy & Regulatory Framework
-              </h3>
-              <p className="text-xs text-white/40">
-                Supported by World Bank / AHEAD Programme · Grant Period
-                2025–2030
-              </p>
-            </div>
+            <h3
+              data-design-id="pl-mohua-title"
+              className="text-lg font-semibold text-white"
+            >
+              MoHUA Policy & Regulatory Framework
+            </h3>
           </div>
 
           <div
-            data-design-id="pl-mohua-workstreams"
-            className="grid md:grid-cols-2 gap-4"
+            data-design-id="pl-mohua-content"
+            className="rounded-2xl border border-teal-400/15 bg-teal-400/[0.02] p-8"
           >
-            {MOHUA_WORKSTREAMS.map((ws, i) => (
-              <motion.div
-                key={ws.num}
-                data-design-id={`pl-mohua-ws-${i + 1}`}
-                initial={{ opacity: 0, y: 15 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1, duration: 0.5 }}
-                className="stat-card group hover:border-teal-400/20 transition-all"
-              >
-                <div className="flex items-center gap-3 mb-3">
-                  <span className="text-lg font-bold text-teal-400/30">
-                    {ws.num}
+            <p
+              data-design-id="pl-mohua-desc"
+              className="text-sm text-white/60 leading-relaxed mb-6"
+            >
+              With support from the AHEAD programme, MoHUA is considering a multi-year program through setting up a{" "}
+              <strong className="text-white/80">DCS Steering Committee</strong> and{" "}
+              <strong className="text-white/80">Centre of Excellence</strong> to develop:
+            </p>
+            <ol
+              data-design-id="pl-mohua-focus-list"
+              className="space-y-3"
+            >
+              {MOHUA_FOCUS_AREAS.map((area, i) => (
+                <li
+                  key={i}
+                  data-design-id={`pl-mohua-focus-${i + 1}`}
+                  className="flex items-start gap-3 text-sm text-white/70"
+                >
+                  <span className="flex items-center justify-center w-6 h-6 rounded-full bg-teal-400/10 text-teal-400 text-xs font-bold shrink-0 mt-0.5">
+                    {i + 1}
                   </span>
-                  <ws.icon className="w-4 h-4 text-teal-400/60" />
-                  <h4 className="text-sm font-semibold text-white">
-                    {ws.title}
-                  </h4>
-                </div>
-                <ul className="space-y-1.5 mb-3">
-                  {ws.actions.map((a, ai) => (
-                    <li
-                      key={ai}
-                      className="text-[11px] text-white/45 flex items-start gap-2"
-                    >
-                      <span className="w-1 h-1 rounded-full bg-teal-400/40 mt-1.5 shrink-0" />
-                      {a}
-                    </li>
-                  ))}
-                </ul>
-                <div className="px-3 py-2 rounded-lg bg-teal-400/[0.05] border border-teal-400/10">
-                  <p className="text-[10px] text-teal-400/70 font-medium">
-                    {ws.target}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
-
-        <motion.div
-          data-design-id="pl-mohua-outcomes"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-4"
-        >
-          <div data-design-id="pl-outcome-1" className="stat-card text-center">
-            <div className="text-xl font-bold text-teal-400">3–5</div>
-            <div className="text-[10px] text-white/40">
-              Smart City / AMRUT DCS projects
-            </div>
-          </div>
-          <div data-design-id="pl-outcome-2" className="stat-card text-center">
-            <div className="text-xl font-bold text-white">500+</div>
-            <div className="text-[10px] text-white/40">
-              Professionals trained by 2030
-            </div>
-          </div>
-          <div data-design-id="pl-outcome-3" className="stat-card text-center">
-            <div className="text-xl font-bold text-emerald-400">40%</div>
-            <div className="text-[10px] text-white/40">
-              Reduction in dev timelines
-            </div>
-          </div>
-          <div data-design-id="pl-outcome-4" className="stat-card text-center">
-            <div className="text-xl font-bold text-amber-400">2028</div>
-            <div className="text-[10px] text-white/40">
-              National framework operational
-            </div>
+                  {area}
+                </li>
+              ))}
+            </ol>
           </div>
         </motion.div>
 
