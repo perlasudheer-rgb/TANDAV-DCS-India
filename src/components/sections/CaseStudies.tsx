@@ -119,12 +119,13 @@ const PROJECTS: Project[] = [
 const DLF_FAILURE = {
   name: "DLF Cyber City",
   location: "Gurugram",
-  capacity: "78,000 TR (original) — abandoned after 7 years",
+  capacity: "45,000 TR (original) — abandoned after 15 years",
   issues: [
     "HERC reclassified power sales → third-party sale → economics altered",
     "Natural gas price volatility: increased 5×",
     "Operational complexity beyond developer competency",
     "Complex trigeneration bundling created regulatory ambiguity",
+    "Safety audits highlighted risks in having gas pipelines in basement",
     "Replaced with building-level electric chillers managed by Carrier",
   ],
   lessons: [
