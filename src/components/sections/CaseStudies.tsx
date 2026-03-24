@@ -30,7 +30,7 @@ const PROJECTS: Project[] = [
   {
     name: "GIFT City",
     location: "Gujarat",
-    capacity: "24,000 TR",
+    capacity: "20,000 TR",
     operator: "GIFT City",
     model: "Electric centrifugal chillers + thermal energy storage",
     status: "success",
@@ -89,7 +89,8 @@ const PROJECTS: Project[] = [
     status: "construction",
     highlights: [
       "Largest DCS facility under development at Mundra Port SEZ",
-      "AESL total planned capacity ~52,000 TR across projects",
+      "AESL total planned capacity ~68,200 TR across projects",
+      "Active pipeline of 450,000 TR",
       "Cooling-as-a-Service model for industries & commercial users",
     ],
     savings: "~45 GWh/yr",
@@ -119,14 +120,16 @@ const PROJECTS: Project[] = [
 const DLF_FAILURE = {
   name: "DLF Cyber City",
   location: "Gurugram",
-  capacity: "45,000 TR (original) — abandoned after 15 years",
+  capacity: "45,000 TR (original) — de-commissioned after 15 years",
+  summary:
+    "DLF planned a tri-generation system with a captive power plant and vapour absorption chiller machine (VAM) due to lack of access to reliable grid power and enhance energy efficiency",
   issues: [
     "HERC reclassified power sales → third-party sale → economics altered",
     "Natural gas price volatility: increased 5×",
     "Operational complexity beyond developer competency",
     "Complex trigeneration bundling created regulatory ambiguity",
     "Safety audits highlighted risks in having gas pipelines in basement",
-    "Replaced with building-level electric chillers managed by Carrier",
+    "Replaced with building-level electric chillers",
   ],
   lessons: [
     "Secure binding regulatory approvals before investing",
@@ -389,6 +392,13 @@ export default function CaseStudies() {
               </p>
             </div>
           </div>
+
+          <p
+            data-design-id="cs-failure-summary"
+            className="text-sm text-white/60 mb-6 leading-relaxed"
+          >
+            {DLF_FAILURE.summary}
+          </p>
 
           <div className="grid md:grid-cols-2 gap-8">
             <div>
