@@ -83,12 +83,6 @@ export default function DCSHub() {
             className="inline-block rounded-xl border border-teal-400/20 bg-teal-400/[0.04] px-6 py-4 mb-6"
           >
             <span
-              data-design-id="hub-tandav-acronym"
-              className="text-lg md:text-xl font-bold tracking-[0.2em] text-teal-400 block mb-1"
-            >
-              TANDAV
-            </span>
-            <span
               data-design-id="hub-tandav-fullform"
               className="text-xs md:text-sm tracking-wide text-white/60"
             >
@@ -100,8 +94,18 @@ export default function DCSHub() {
             data-design-id="hub-subtitle"
             className="section-subtitle mx-auto text-center"
           >
-            Implementation support and program management by UNEP and World Bank
-            through AHEAD to catalyse India&apos;s district cooling market.
+            Implementation support and program management by UNEP through
+            AHEAD to catalyse India&apos;s district cooling market.
+          </p>
+          <p
+            data-design-id="hub-convergence-para"
+            className="text-sm text-white/50 max-w-3xl mx-auto text-center mt-4 leading-relaxed"
+          >
+            UNEP has been working with GIZ and BEE and has proposed setting up
+            a physical and virtual hub. Now given the work progressing through
+            the AHEAD programme there is opportunity for convergence between
+            both initiatives to drive more focused outcomes around District
+            Cooling.
           </p>
         </motion.div>
 
@@ -190,21 +194,19 @@ export default function DCSHub() {
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-3">
             <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-teal-400 to-teal-600 flex items-center justify-center text-xs font-bold text-white">
-              T
+              DC
             </div>
             <span
               data-design-id="hub-footer-title"
               className="text-sm font-semibold text-white/60"
             >
-              TANDAV — District Cooling in India
+              District Cooling in India
             </span>
           </div>
           <div className="flex items-center gap-4 text-[10px] text-white/30">
             <span data-design-id="hub-footer-bee">BEE</span>
             <span>·</span>
             <span data-design-id="hub-footer-unep">UNEP</span>
-            <span>·</span>
-            <span data-design-id="hub-footer-wb">World Bank</span>
             <span>·</span>
             <span data-design-id="hub-footer-year">2026</span>
           </div>

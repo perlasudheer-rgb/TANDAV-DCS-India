@@ -7,7 +7,6 @@ import {
   ArrowUp,
   Factory,
   Flame,
-  Globe,
   Recycle,
   Thermometer,
   Truck,
@@ -104,14 +103,10 @@ export default function Climate() {
             <span className="text-gradient">Environment</span>
           </h2>
           <p data-design-id="climate-subtitle" className="section-subtitle">
-            India&apos;s ACs emitted 156 MT CO₂e in 2024 — equivalent to the
-            entire passenger car fleet. DCS can cut emissions, eliminate
-            refrigerant leaks, and reverse urban heat islands. At scale,
-            district cooling could constitute the{" "}
-            <strong className="text-teal-400/80">
-              world&apos;s largest Climate & Heat Mitigation Programme
-            </strong>
-            .
+            Estimates for emissions suggest India&apos;s ACs emitted 156 MT
+            CO₂e in 2024 — equivalent to the entire passenger car fleet. DCS
+            can cut emissions, eliminate refrigerant leaks, and reverse urban
+            heat islands.
           </p>
         </motion.div>
 
@@ -194,7 +189,7 @@ export default function Climate() {
               data-design-id="climate-ref-title"
               className="text-lg font-semibold text-white"
             >
-              India&apos;s Refrigerant Leakage Crisis
+              India&apos;s Refrigerant Leakage Challenges
             </h3>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
@@ -240,10 +235,12 @@ export default function Climate() {
             className="text-xs text-white/50 leading-relaxed mb-4"
           >
             80% of room ACs older than 5 years require annual refrigerant
-            refilling. India lacks lifecycle refrigerant management regulations
-            — most refrigerant escapes through poor O&M, faulty installations,
-            and informal sector disposal with virtually zero end-of-life
-            recovery. By 2035, AC refrigerant emissions are projected to reach{" "}
+            refilling. Whilst India has made steady progress in its HFC
+            refrigerant phase-outs, there are no regulations for lifecycle
+            management — most refrigerant escapes through poor O&amp;M, faulty
+            installations, and informal sector disposal with virtually zero
+            end-of-life recovery. By 2035, estimates for emissions from AC
+            refrigerants are projected to reach{" "}
             <strong className="text-amber-400/80">84 MT CO₂e/year</strong>.
           </p>
 
@@ -293,7 +290,7 @@ export default function Climate() {
             data-design-id="climate-co2-title"
             className="text-lg font-semibold text-white mb-6"
           >
-            Total CO₂ Reduction at 4.81M TR by 2035
+            Estimates for CO₂ Reduction at 4.81M TR by 2035
           </h3>
           <div className="space-y-4 mb-6">
             {CO2_SOURCES.map((s, i) => (
@@ -562,81 +559,7 @@ export default function Climate() {
           </div>
         </motion.div>
 
-        {/* World's Largest Climate Programme */}
-        <motion.div
-          data-design-id="climate-programme"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
-          className="rounded-2xl border border-teal-400/20 bg-gradient-to-br from-teal-400/[0.04] to-cyan-400/[0.04] p-8 md:p-10"
-        >
-          <div className="flex items-center gap-3 mb-6">
-            <Globe className="w-6 h-6 text-teal-400" />
-            <div>
-              <h3
-                data-design-id="climate-prog-title"
-                className="text-lg font-semibold text-white"
-              >
-                World&apos;s Largest Climate & Heat Mitigation Programme
-              </h3>
-              <p className="text-[10px] text-teal-400/60">Launched 2026</p>
-            </div>
-          </div>
-          <p
-            data-design-id="climate-prog-desc"
-            className="text-xs text-white/50 leading-relaxed mb-5"
-          >
-            India&apos;s district cooling ambition — combining energy
-            efficiency, refrigerant leak elimination, UHI reversal, and embodied
-            carbon reduction — has the potential to become the{" "}
-            <strong className="text-teal-400/80">
-              world&apos;s largest integrated climate and heat mitigation
-              programme
-            </strong>
-            . No other single infrastructure intervention simultaneously
-            addresses energy demand, urban temperatures, refrigerant emissions,
-            material waste, and public health at this scale.
-          </p>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <div
-              data-design-id="climate-prog-stat-1"
-              className="text-center p-3 rounded-lg bg-white/[0.03]"
-            >
-              <div className="text-lg font-bold text-teal-400">250–500</div>
-              <div className="text-[10px] text-white/40">
-                MT CO₂e/yr at ICAP scale
-              </div>
-            </div>
-            <div
-              data-design-id="climate-prog-stat-2"
-              className="text-center p-3 rounded-lg bg-white/[0.03]"
-            >
-              <div className="text-lg font-bold text-white">38.1M TR</div>
-              <div className="text-[10px] text-white/40">
-                Full ICAP target by 2037
-              </div>
-            </div>
-            <div
-              data-design-id="climate-prog-stat-3"
-              className="text-center p-3 rounded-lg bg-white/[0.03]"
-            >
-              <div className="text-lg font-bold text-emerald-400">−1.5°C</div>
-              <div className="text-[10px] text-white/40">
-                Urban temp reduction
-              </div>
-            </div>
-            <div
-              data-design-id="climate-prog-stat-4"
-              className="text-center p-3 rounded-lg bg-white/[0.03]"
-            >
-              <div className="text-lg font-bold text-cyan-400">4–9×</div>
-              <div className="text-[10px] text-white/40">
-                UJALA LED impact multiplier
-              </div>
-            </div>
-          </div>
-        </motion.div>
+        
       </div>
     </section>
   );

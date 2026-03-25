@@ -1,17 +1,44 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Lightbulb, MessageSquare, Rocket, Scale } from "lucide-react";
+import { BookOpen, FileText, Lightbulb, MessageSquare, Rocket, Scale } from "lucide-react";
 
-const QUESTIONS = [
-  "What role should each stakeholder category — developers, OEMs, think tanks, multilateral bodies, financial institutions — play to support the hub?",
-  "How would India\u2019s new carbon trading scheme benefit District Cooling activities? Can there be other incentive structures?",
-  "How should DCS be integrated into urban master plans, development control regulations, and aligned with programmes like ECBC?",
-  "What role should centre, state and city governments best play in DCS market development?",
-  "How can the DCS Hub best support project development from feasibility to financial close?",
-  "What financing instruments (green bonds, climate finance, MDB support) can bridge the bankability gap?",
-  "What approaches can be adopted for market awareness and capacity building programmes especially with real estate developers, large Indian corporates and MNC tenants, urban planners, engineering consultants etc?",
-  "How can the hub achieve financial sustainability through monetisation of its activities after the initial years?",
+const POLICY_QUESTIONS = [
+  "How should DCS integrate into urban master plans, DCRs, and ECBC?",
+  "What role should centre, state and city governments play in DCS market development?",
+  "How can carbon trading and other incentive structures benefit District Cooling?",
+  "What financing instruments (green bonds, climate finance) can bridge the bankability gap?",
+];
+
+const HUB_QUESTIONS = [
+  "What role should each stakeholder — developers, OEMs, think tanks, multilaterals, FIs — play?",
+  "How can the Hub best support projects from feasibility to financial close?",
+  "What approaches for awareness and capacity building with developers, corporates, planners?",
+  "How can the Hub achieve financial sustainability after the initial years?",
+];
+
+const POLICY_INITIATIVES = [
+  {
+    icon: FileText,
+    title: "MoEFCC & India Cooling Action Plan (ICAP)",
+    desc: "ICAP recommends strategic rollout of District Cooling Systems (DCS) in medium to long-term for energy efficiency and phasedown of HFC refrigerants and phaseout of HCFCs.",
+    color: "text-teal-400",
+    border: "border-teal-400/20",
+  },
+  {
+    icon: BookOpen,
+    title: "MoEFCC Techno-Economic Feasibility Study",
+    desc: "MoEFCC study on techno-economic feasibility of DCS in India shows its high viability for a number of typologies and significant benefits.",
+    color: "text-cyan-400",
+    border: "border-cyan-400/20",
+  },
+  {
+    icon: Lightbulb,
+    title: "Bureau of Energy Efficiency (BEE) & EE-Cool Project",
+    desc: "Developed National District Cooling Guidelines (2023) and DCS Roadmap 2025\u20132038. Virtual Knowledge Hub on District Cooling. Design of physical DCS Hub.",
+    color: "text-amber-400",
+    border: "border-amber-400/20",
+  },
 ];
 
 const ACTIONS = [
@@ -19,7 +46,6 @@ const ACTIONS = [
     num: "01",
     title: "Recognise",
     icon: Lightbulb,
-    desc: "Acknowledge India\u2019s existing 70+ DCS projects as proof of techno-commercial viability. Create a shared taxonomy based on BEE guidelines.",
     color: "text-teal-400",
     bg: "bg-teal-400/10",
     border: "border-teal-400/20",
@@ -28,7 +54,6 @@ const ACTIONS = [
     num: "02",
     title: "Regulate",
     icon: Scale,
-    desc: "Establish DCS as a utility service with tariff frameworks, right-of-way provisions, and standardised concession structures \u2014 enabling the merchant model.",
     color: "text-cyan-400",
     bg: "bg-cyan-400/10",
     border: "border-cyan-400/20",
@@ -37,7 +62,6 @@ const ACTIONS = [
     num: "03",
     title: "Catalyse",
     icon: Rocket,
-    desc: "Support TANDAV \u2014 Government of India\u2019s DCS Hub, supported by UNEP and World Bank \u2014 as the coordination platform for policy development, project development, capacity building, and market intelligence.",
     color: "text-amber-400",
     bg: "bg-amber-400/10",
     border: "border-amber-400/20",
@@ -86,7 +110,45 @@ export default function PathForward() {
           </p>
         </motion.div>
 
-        {/* Questions for Roundtable */}
+        {/* Policy Initiatives */}
+        <motion.div
+          data-design-id="pf-policy-initiatives"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          className="mb-16"
+        >
+          <h3
+            data-design-id="pf-policy-title"
+            className="text-lg font-semibold text-white mb-6 text-center"
+          >
+            Key Policy Initiatives
+          </h3>
+          <div className="grid md:grid-cols-3 gap-4">
+            {POLICY_INITIATIVES.map((item, i) => (
+              <motion.div
+                key={item.title}
+                data-design-id={`pf-policy-init-${i + 1}`}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1, duration: 0.5 }}
+                className={`stat-card group hover:${item.border} transition-all duration-300`}
+              >
+                <item.icon className={`w-6 h-6 ${item.color} opacity-60 mb-4 group-hover:opacity-100 transition-opacity`} />
+                <h4 className={`text-sm font-semibold ${item.color} mb-2`}>
+                  {item.title}
+                </h4>
+                <p className="text-[11px] text-white/45 leading-relaxed">
+                  {item.desc}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Questions for Roundtable — Two Categories */}
         <motion.div
           data-design-id="pf-questions"
           initial={{ opacity: 0, y: 30 }}
@@ -95,7 +157,7 @@ export default function PathForward() {
           transition={{ duration: 0.7 }}
           className="rounded-2xl border border-white/[0.08] bg-white/[0.02] p-8 md:p-10 mb-16"
         >
-          <div className="flex items-center gap-3 mb-6">
+          <div className="flex items-center gap-3 mb-8">
             <MessageSquare className="w-6 h-6 text-teal-400" />
             <h3
               data-design-id="pf-questions-title"
@@ -104,27 +166,55 @@ export default function PathForward() {
               Questions for Today&apos;s Roundtable
             </h3>
           </div>
-          <div className="grid md:grid-cols-2 gap-4">
-            {QUESTIONS.map((q, i) => (
-              <motion.div
-                key={q}
-                data-design-id={`pf-question-${i + 1}`}
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.08, duration: 0.5 }}
-                className="flex items-start gap-3 p-4 rounded-xl bg-white/[0.02] border border-white/[0.04] hover:border-teal-400/15 transition-colors"
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {/* Category 1 */}
+            <div data-design-id="pf-cat-1">
+              <h4
+                data-design-id="pf-cat-1-title"
+                className="text-sm font-semibold text-teal-400 mb-4"
               >
-                <span className="text-sm font-bold text-teal-400/40 shrink-0">
-                  0{i + 1}
-                </span>
-                <p className="text-xs text-white/60 leading-relaxed">{q}</p>
-              </motion.div>
-            ))}
+                1) Enabling Policy Environment for District Cooling
+              </h4>
+              <ul className="space-y-3">
+                {POLICY_QUESTIONS.map((q, i) => (
+                  <li
+                    key={q}
+                    data-design-id={`pf-policy-q-${i + 1}`}
+                    className="flex items-start gap-3 p-3 rounded-xl bg-white/[0.02] border border-white/[0.04]"
+                  >
+                    <span className="w-1.5 h-1.5 rounded-full bg-teal-400/50 mt-1.5 shrink-0" />
+                    <p className="text-xs text-white/60 leading-relaxed">{q}</p>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Category 2 */}
+            <div data-design-id="pf-cat-2">
+              <h4
+                data-design-id="pf-cat-2-title"
+                className="text-sm font-semibold text-cyan-400 mb-4"
+              >
+                2) Operationalising the Hub — Roles &amp; Structure
+              </h4>
+              <ul className="space-y-3">
+                {HUB_QUESTIONS.map((q, i) => (
+                  <li
+                    key={q}
+                    data-design-id={`pf-hub-q-${i + 1}`}
+                    className="flex items-start gap-3 p-3 rounded-xl bg-white/[0.02] border border-white/[0.04]"
+                  >
+                    <span className="w-1.5 h-1.5 rounded-full bg-cyan-400/50 mt-1.5 shrink-0" />
+                    <p className="text-xs text-white/60 leading-relaxed">{q}</p>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </motion.div>
 
-        {/* Three Actions */}
+        {/* Three Actions — titles only */}
         <div
           data-design-id="pf-actions"
           className="grid md:grid-cols-3 gap-6 mb-16"
@@ -137,26 +227,21 @@ export default function PathForward() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.15, duration: 0.6 }}
-              className={`rounded-2xl border ${action.border} ${action.bg.replace("/10", "/[0.02]")} p-8`}
+              className={`rounded-2xl border ${action.border} ${action.bg.replace("/10", "/[0.02]")} p-8 text-center`}
             >
-              <div className="flex items-center gap-3 mb-4">
+              <div className="flex flex-col items-center gap-3">
                 <div
-                  className={`w-10 h-10 rounded-xl ${action.bg} flex items-center justify-center`}
+                  className={`w-12 h-12 rounded-xl ${action.bg} flex items-center justify-center`}
                 >
-                  <action.icon className={`w-5 h-5 ${action.color}`} />
+                  <action.icon className={`w-6 h-6 ${action.color}`} />
                 </div>
-                <div>
-                  <span className="text-lg font-bold text-white/20">
-                    {action.num}
-                  </span>
-                  <h3 className={`text-base font-semibold ${action.color}`}>
-                    {action.title}
-                  </h3>
-                </div>
+                <span className="text-lg font-bold text-white/20">
+                  {action.num}
+                </span>
+                <h3 className={`text-lg font-semibold ${action.color}`}>
+                  {action.title}
+                </h3>
               </div>
-              <p className="text-xs text-white/50 leading-relaxed">
-                {action.desc}
-              </p>
             </motion.div>
           ))}
         </div>
@@ -174,7 +259,6 @@ export default function PathForward() {
             data-design-id="pf-closing-text"
             className="text-sm text-white/50 mb-6 max-w-2xl mx-auto leading-relaxed"
           >
-            TANDAV —{" "}
             <span className="text-white/70">
               Transforming Architecture for National District-cooling
               Advancement & Viability
