@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { BookOpen, FileText, Lightbulb, MessageSquare, Rocket, Scale } from "lucide-react";
+import { Lightbulb, MessageSquare, Rocket, Scale } from "lucide-react";
 
 const POLICY_QUESTIONS = [
   "How should DCS integrate into urban master plans, DCRs, and ECBC?",
@@ -15,30 +15,6 @@ const HUB_QUESTIONS = [
   "How can the Hub best support projects from feasibility to financial close?",
   "What approaches for awareness and capacity building with developers, corporates, planners?",
   "How can the Hub achieve financial sustainability after the initial years?",
-];
-
-const POLICY_INITIATIVES = [
-  {
-    icon: FileText,
-    title: "MoEFCC & India Cooling Action Plan (ICAP)",
-    desc: "ICAP recommends strategic rollout of District Cooling Systems (DCS) in medium to long-term for energy efficiency and phasedown of HFC refrigerants and phaseout of HCFCs.",
-    color: "text-teal-400",
-    border: "border-teal-400/20",
-  },
-  {
-    icon: BookOpen,
-    title: "MoEFCC Techno-Economic Feasibility Study",
-    desc: "MoEFCC study on techno-economic feasibility of DCS in India shows its high viability for a number of typologies and significant benefits.",
-    color: "text-cyan-400",
-    border: "border-cyan-400/20",
-  },
-  {
-    icon: Lightbulb,
-    title: "Bureau of Energy Efficiency (BEE) & EE-Cool Project",
-    desc: "Developed National District Cooling Guidelines (2023) and DCS Roadmap 2025\u20132038. Virtual Knowledge Hub on District Cooling. Design of physical DCS Hub.",
-    color: "text-amber-400",
-    border: "border-amber-400/20",
-  },
 ];
 
 const ACTIONS = [
@@ -108,44 +84,6 @@ export default function PathForward() {
             now is coordinated action to create the enabling ecosystem for a
             merchant district cooling market.
           </p>
-        </motion.div>
-
-        {/* Policy Initiatives */}
-        <motion.div
-          data-design-id="pf-policy-initiatives"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
-          className="mb-16"
-        >
-          <h3
-            data-design-id="pf-policy-title"
-            className="text-lg font-semibold text-white mb-6 text-center"
-          >
-            Key Policy Initiatives
-          </h3>
-          <div className="grid md:grid-cols-3 gap-4">
-            {POLICY_INITIATIVES.map((item, i) => (
-              <motion.div
-                key={item.title}
-                data-design-id={`pf-policy-init-${i + 1}`}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1, duration: 0.5 }}
-                className={`stat-card group hover:${item.border} transition-all duration-300`}
-              >
-                <item.icon className={`w-6 h-6 ${item.color} opacity-60 mb-4 group-hover:opacity-100 transition-opacity`} />
-                <h4 className={`text-sm font-semibold ${item.color} mb-2`}>
-                  {item.title}
-                </h4>
-                <p className="text-[11px] text-white/45 leading-relaxed">
-                  {item.desc}
-                </p>
-              </motion.div>
-            ))}
-          </div>
         </motion.div>
 
         {/* Questions for Roundtable — Two Categories */}

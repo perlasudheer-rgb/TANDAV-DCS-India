@@ -2,12 +2,39 @@
 
 import { motion } from "framer-motion";
 import {
+  BookOpen,
   Building2,
   Factory,
+  FileText,
   Landmark,
+  Lightbulb,
   MapPin,
   Target,
 } from "lucide-react";
+
+const POLICY_INITIATIVES = [
+  {
+    icon: FileText,
+    title: "MoEFCC & India Cooling Action Plan (ICAP)",
+    desc: "ICAP recommends strategic rollout of District Cooling Systems (DCS) in medium to long-term for energy efficiency and phasedown of HFC refrigerants and phaseout of HCFCs.",
+    color: "text-teal-400",
+    border: "border-teal-400/20",
+  },
+  {
+    icon: BookOpen,
+    title: "MoEFCC Techno-Economic Feasibility Study",
+    desc: "MoEFCC study on techno-economic feasibility of DCS in India shows its high viability for a number of typologies and significant benefits.",
+    color: "text-cyan-400",
+    border: "border-cyan-400/20",
+  },
+  {
+    icon: Lightbulb,
+    title: "Bureau of Energy Efficiency (BEE) & EE-Cool Project",
+    desc: "Developed National District Cooling Guidelines (2023) and DCS Roadmap 2025\u20132038. Virtual Knowledge Hub on District Cooling. Design of physical DCS Hub.",
+    color: "text-amber-400",
+    border: "border-amber-400/20",
+  },
+];
 
 const MOHUA_FOCUS_AREAS = [
   "Regulatory and Institutional Framework for development of District Cooling",
@@ -51,6 +78,73 @@ export default function PolicyLevers() {
             Three flagship government programmes and MoHUA&apos;s regulatory
             framework can accelerate district cooling adoption across India.
           </p>
+        </motion.div>
+
+        {/* Key Policy Initiatives */}
+        <motion.div
+          data-design-id="pl-policy-initiatives"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          className="mb-16"
+        >
+          <h3
+            data-design-id="pl-policy-init-title"
+            className="text-lg font-semibold text-white mb-6"
+          >
+            Key Policy Initiatives
+          </h3>
+          <div className="grid md:grid-cols-3 gap-4">
+            <motion.div
+              data-design-id="pl-policy-init-1"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0, duration: 0.5 }}
+              className="stat-card group hover:border-teal-400/20 transition-all duration-300"
+            >
+              <FileText className="w-6 h-6 text-teal-400 opacity-60 mb-4 group-hover:opacity-100 transition-opacity" />
+              <h4 data-design-id="pl-policy-init-1-title" className="text-sm font-semibold text-teal-400 mb-2">
+                {POLICY_INITIATIVES[0].title}
+              </h4>
+              <p data-design-id="pl-policy-init-1-desc" className="text-[11px] text-white/45 leading-relaxed">
+                {POLICY_INITIATIVES[0].desc}
+              </p>
+            </motion.div>
+            <motion.div
+              data-design-id="pl-policy-init-2"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1, duration: 0.5 }}
+              className="stat-card group hover:border-cyan-400/20 transition-all duration-300"
+            >
+              <BookOpen className="w-6 h-6 text-cyan-400 opacity-60 mb-4 group-hover:opacity-100 transition-opacity" />
+              <h4 data-design-id="pl-policy-init-2-title" className="text-sm font-semibold text-cyan-400 mb-2">
+                {POLICY_INITIATIVES[1].title}
+              </h4>
+              <p data-design-id="pl-policy-init-2-desc" className="text-[11px] text-white/45 leading-relaxed">
+                {POLICY_INITIATIVES[1].desc}
+              </p>
+            </motion.div>
+            <motion.div
+              data-design-id="pl-policy-init-3"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2, duration: 0.5 }}
+              className="stat-card group hover:border-amber-400/20 transition-all duration-300"
+            >
+              <Lightbulb className="w-6 h-6 text-amber-400 opacity-60 mb-4 group-hover:opacity-100 transition-opacity" />
+              <h4 data-design-id="pl-policy-init-3-title" className="text-sm font-semibold text-amber-400 mb-2">
+                {POLICY_INITIATIVES[2].title}
+              </h4>
+              <p data-design-id="pl-policy-init-3-desc" className="text-[11px] text-white/45 leading-relaxed">
+                {POLICY_INITIATIVES[2].desc}
+              </p>
+            </motion.div>
+          </div>
         </motion.div>
 
         <div

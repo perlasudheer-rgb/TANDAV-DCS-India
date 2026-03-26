@@ -68,12 +68,6 @@ export default function DCSHub() {
           >
             <span className="text-gradient">DCS Hub</span>
           </h2>
-          <p
-            data-design-id="hub-convergence-note"
-            className="text-sm text-white/50 mb-4 italic"
-          >
-            (Convergence between ministries and relevant departments would facilitate more focused outcomes)
-          </p>
           <motion.div
             data-design-id="hub-tandav-reveal"
             initial={{ opacity: 0, scale: 0.95 }}
@@ -90,13 +84,6 @@ export default function DCSHub() {
               Advancement &amp; Viability
             </span>
           </motion.div>
-          <p
-            data-design-id="hub-subtitle"
-            className="section-subtitle mx-auto text-center"
-          >
-            Implementation support and program management by UNEP through
-            AHEAD to catalyse India&apos;s district cooling market.
-          </p>
           <p
             data-design-id="hub-convergence-para"
             className="text-sm text-white/50 max-w-3xl mx-auto text-center mt-4 leading-relaxed"

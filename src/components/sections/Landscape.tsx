@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import {
   Activity,
   BatteryCharging,
@@ -107,6 +108,82 @@ export default function Landscape() {
             measured against BEE&apos;s DCS guidelines. Deployed across 6
             sectors with multiple proven models.
           </p>
+        </motion.div>
+
+        {/* What is District Cooling */}
+        <motion.div
+          data-design-id="landscape-dcs-definition"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          className="mb-20 rounded-2xl border border-teal-400/15 bg-teal-400/[0.02] p-8 md:p-10"
+        >
+          <h3
+            data-design-id="landscape-dcs-def-title"
+            className="text-lg font-semibold text-white mb-6"
+          >
+            What is District Cooling System (DCS)?
+          </h3>
+          <div className="grid md:grid-cols-2 gap-8 items-start">
+            <div data-design-id="landscape-dcs-def-text">
+              <p
+                data-design-id="landscape-dcs-def-quote"
+                className="text-sm text-white/60 leading-relaxed mb-5"
+              >
+                BEE Guidelines defines DCS as{" "}
+                <strong className="text-white/90">
+                  &ldquo;One single cooling network, distributing chilled water
+                  to a cluster of buildings as a self-sustaining service&rdquo;
+                </strong>
+              </p>
+              <h4
+                data-design-id="landscape-dcs-def-comp-title"
+                className="text-sm font-semibold text-teal-400 mb-3"
+              >
+                Components
+              </h4>
+              <ul data-design-id="landscape-dcs-def-comp-list" className="space-y-2">
+                <li
+                  data-design-id="landscape-dcs-def-comp-1"
+                  className="flex items-start gap-3 text-sm text-white/60"
+                >
+                  <span className="w-1.5 h-1.5 rounded-full bg-teal-400/60 mt-1.5 shrink-0" />
+                  <span>
+                    <strong className="text-white/80">District cooling plants:</strong> Large chillers
+                  </span>
+                </li>
+                <li
+                  data-design-id="landscape-dcs-def-comp-2"
+                  className="flex items-start gap-3 text-sm text-white/60"
+                >
+                  <span className="w-1.5 h-1.5 rounded-full bg-teal-400/60 mt-1.5 shrink-0" />
+                  <span>
+                    <strong className="text-white/80">Distribution Network:</strong> Pipes and pumps
+                  </span>
+                </li>
+                <li
+                  data-design-id="landscape-dcs-def-comp-3"
+                  className="flex items-start gap-3 text-sm text-white/60"
+                >
+                  <span className="w-1.5 h-1.5 rounded-full bg-teal-400/60 mt-1.5 shrink-0" />
+                  <span>
+                    <strong className="text-white/80">Energy transfer stations (ETS):</strong> Heat exchangers
+                  </span>
+                </li>
+              </ul>
+            </div>
+            <div data-design-id="landscape-dcs-def-image" className="relative w-full">
+              <Image
+                src="/dcs-definition.jpg"
+                alt="District Cooling System diagram showing central cooling plant distributing chilled water to multiple buildings"
+                width={700}
+                height={450}
+                className="rounded-xl w-full h-auto"
+                priority
+              />
+            </div>
+          </div>
         </motion.div>
 
         <div
